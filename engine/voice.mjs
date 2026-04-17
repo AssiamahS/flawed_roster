@@ -14,7 +14,7 @@ const text = process.argv.slice(2).join(" ") ||
 const hf = new InferenceClient(token);
 
 const blob = await hf.textToSpeech({
-  provider: "auto",
+  provider: "hf-inference",
   model: "facebook/mms-tts-eng",
   inputs: text,
 });

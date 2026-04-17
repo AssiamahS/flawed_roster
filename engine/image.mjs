@@ -14,10 +14,10 @@ const prompt = process.argv.slice(2).join(" ") ||
 const hf = new InferenceClient(token);
 
 const blob = await hf.textToImage({
-  provider: "auto",
-  model: "black-forest-labs/FLUX.1-dev",
+  provider: "hf-inference",
+  model: "stabilityai/stable-diffusion-xl-base-1.0",
   inputs: prompt,
-  parameters: { width: 768, height: 1344, num_inference_steps: 28 },
+  parameters: { width: 768, height: 1344, num_inference_steps: 30, guidance_scale: 7.5 },
 });
 
 const buf = Buffer.from(await blob.arrayBuffer());
