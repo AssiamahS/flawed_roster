@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>flawed_roster</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 2rem 1.25rem 4rem;
+      background: #0a0a0a; color: #e6e6e6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      max-width: 960px; margin-inline: auto;
+    }
+    header { border-bottom: 1px solid #1f1f1f; padding-bottom: 1rem; margin-bottom: 2rem; }
+    h1 { margin: 0; letter-spacing: .22em; text-transform: uppercase; font-size: 1rem; }
+    .sub { color: #666; font-size: .78rem; margin-top: .35rem; }
+    .stat { display: inline-block; margin-right: 1.5rem; color: #888; font-size: .8rem; }
+    .stat b { color: #e6e6e6; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .clip {
+      background: #111; border: 1px solid #1c1c1c; border-radius: 8px;
+      padding: .9rem; display: flex; flex-direction: column; gap: .5rem;
+    }
+    .clip video { width: 100%; border-radius: 4px; background: #000; }
+    .prompt { font-size: .9rem; line-height: 1.35; }
+    .meta { color: #5e5e5e; font-size: .72rem; }
+    .empty {
+      text-align: center; padding: 4rem 0; color: #5a5a5a;
+      border: 1px dashed #222; border-radius: 8px;
+    }
+    a { color: #e6e6e6; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>flawed_roster</h1>
+    <div class="sub">viral engine — auto-generated clips, cron every 8h</div>
+    <div style="margin-top:.75rem">
+      <span class="stat"><b id="count">0</b> clips</span>
+      <span class="stat">last <b id="updated">—</b></span>
+      <span class="stat"><a href="https://github.com/AssiamahS/flawed_roster">repo</a></span>
+    </div>
+  </header>
+  <main id="feed" class="grid"></main>
+  <script>
+    (async () => {
+      const feed = document.getElementById("feed");
+      try {
+        const q = await (await fetch("queue.json", { cache: "no-store" })).json();
+        document.getElementById("count").textContent = q.clips?.length || 0;
+        document.getElementById("updated").textContent =
+          q.updated_at ? new Date(q.updated_at).toLocaleString() : "never";
+        if (!q.clips?.length) {
+          feed.outerHTML = '<div class="empty">no clips yet — trigger the <code>Generate Clip</code> workflow</div>';
+          return;
+        }
+        feed.innerHTML = q.clips.map(c => `
+          <article class="clip">
+            ${c.clip_url ? `<video src="${c.clip_url}" controls preload="metadata"></video>` : ""}
+            <div class="prompt">${escapeHtml(c.prompt || "")}</div>
+            <div class="meta">${c.id || ""} · ${c.created_at ? new Date(c.created_at).toLocaleString() : ""}</div>
+          </article>
+        `).join("");
+      } catch (e) {
+        feed.outerHTML = '<div class="empty">queue unavailable</div>';
+      }
+    })();
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+  </script>
+</body>
+</html>

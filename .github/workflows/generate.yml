@@ -1,0 +1,52 @@
+name: Generate Clip
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Topic / script"
+        required: true
+        default: "three facts about the deep ocean"
+  schedule:
+    - cron: "0 */8 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Generate
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          PROMPT="${{ github.event.inputs.prompt || 'three unexpected facts about the universe' }}"
+          node engine/pipeline.mjs "$PROMPT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clip-${{ github.run_id }}
+          path: out/*.mp4
+          retention-days: 30
+
+      - name: Commit queue.json
+        run: |
+          git config user.name "flawed_roster-bot"
+          git config user.email "bot@flawed-roster.local"
+          git add docs/queue.json
+          git diff --cached --quiet || git commit -m "queue: new clip from run ${{ github.run_id }}"
+          git push || true
