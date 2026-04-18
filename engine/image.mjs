@@ -1,27 +1,37 @@
-import { InferenceClient } from "@huggingface/inference";
+import Replicate from "replicate";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const token = process.env.HF_TOKEN;
+const token = process.env.REPLICATE_API_TOKEN;
 if (!token) {
-  console.error("HF_TOKEN not set");
+  console.error("REPLICATE_API_TOKEN not set");
   process.exit(1);
 }
 
 const prompt = process.argv.slice(2).join(" ") ||
   "cinematic 9:16 portrait, moody studio lighting, shallow depth of field, film grain";
 
-const hf = new InferenceClient(token);
+const replicate = new Replicate({ auth: token });
 
-const blob = await hf.textToImage({
-  provider: "hf-inference",
-  model: "stabilityai/stable-diffusion-xl-base-1.0",
-  inputs: prompt,
-  parameters: { width: 768, height: 1344, num_inference_steps: 30, guidance_scale: 7.5 },
+const output = await replicate.run("black-forest-labs/flux-schnell", {
+  input: {
+    prompt,
+    aspect_ratio: "9:16",
+    output_format: "png",
+    num_outputs: 1,
+    num_inference_steps: 4,
+  },
 });
 
-const buf = Buffer.from(await blob.arrayBuffer());
+const item = Array.isArray(output) ? output[0] : output;
+let buf;
+if (typeof item === "string") {
+  buf = Buffer.from(await (await fetch(item)).arrayBuffer());
+} else {
+  buf = Buffer.from(await new Response(item).arrayBuffer());
+}
+
 await fs.mkdir("out", { recursive: true });
-const out = path.join("out", `image-${Date.now()}.png`);
-await fs.writeFile(out, buf);
-process.stdout.write(out);
+const outPath = path.join("out", `image-${Date.now()}.png`);
+await fs.writeFile(outPath, buf);
+process.stdout.write(outPath);
