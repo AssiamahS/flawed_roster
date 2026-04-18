@@ -14,13 +14,13 @@ Return STRICT JSON with three fields:
 Return ONLY the JSON. No markdown fences, no commentary.`;
 
 const body = {
-  model: "openai-fast",
+  model: "openai",
   messages: [
     { role: "system", content: system },
     { role: "user", content: `chimera: ${seed}` },
   ],
   response_format: { type: "json_object" },
-  max_tokens: 700,
+  max_tokens: 1500,
   temperature: 1.0,
 };
 
@@ -36,7 +36,8 @@ if (!resp.ok) {
 }
 
 const json = await resp.json();
-const content = json?.choices?.[0]?.message?.content;
+const msg = json?.choices?.[0]?.message ?? {};
+const content = msg.content || msg.reasoning_content;
 if (!content) {
   console.error(`No content in response: ${JSON.stringify(json).slice(0, 500)}`);
   process.exit(1);
