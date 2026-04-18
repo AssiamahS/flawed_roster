@@ -4,13 +4,13 @@ import path from "node:path";
 const text = process.argv.slice(2).join(" ") ||
   "Three things you didn't know about the deep ocean.";
 
-const url = new URL(`https://text.pollinations.ai/${encodeURIComponent(text)}`);
-url.searchParams.set("model", "openai-audio");
-url.searchParams.set("voice", "nova");
+const url = new URL("https://api.streamelements.com/kappa/v2/speech");
+url.searchParams.set("voice", "Brian");
+url.searchParams.set("text", text);
 
 const resp = await fetch(url, { headers: { "Accept": "audio/mpeg" } });
 if (!resp.ok) {
-  console.error(`Pollinations audio ${resp.status}: ${await resp.text()}`);
+  console.error(`StreamElements ${resp.status}: ${await resp.text()}`);
   process.exit(1);
 }
 
