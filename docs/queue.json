@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1776551387682",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinifarellino",
+      "lyrics": "Ecco Pinguinifarellino! Questa androgina bevoniata di corvi fa deserto di semafori con la cantilena di metallo, allegra e docemente pronta a forzare gli ingranaggi del traffico. Attenzione, viaggiatore intenso: la sua porta di accesso al carburante è più grande della tua corrente!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-Cybertruck fusion, wearing sleek neon yellow sunglasses, expressive big eyes, tiny metallic boots, standing on a sunny highway archway, warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1776551372226.png",
+      "voice": "out/voice-1776551372284.wav",
+      "captions": "out/voice-1776551372284.srt",
+      "clip": "out/clip-1776551387682.mp4",
+      "created_at": "2026-04-18T22:29:57.509Z"
+    },
+    {
       "id": "clip-1776550550081",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinifarellino",
@@ -31,5 +43,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-18T22:15:58.278Z"
+  "updated_at": "2026-04-18T22:29:57.509Z"
 }
