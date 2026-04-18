@@ -4,23 +4,24 @@ import path from "node:path";
 const seed = process.argv.slice(2).join(" ") ||
   "pigeon fused with a cybertruck";
 
-const system = `You are a viral Italian Brainrot writer. Given a chimera seed (animal + object), output a TikTok character kit.
+const system = `You are a viral Italian Brainrot writer. Given a chimera seed (animal + object), output a TikTok character kit. Reply immediately in the EXACT format below — no preamble, no thinking, no markdown fences.
 
-Return STRICT JSON with three fields:
-1. "name": 2-4 pseudo-Italian words. Use -ino/-ina/-ello/-ato/-ana endings. Rhyming, chantable, playful. Examples: "Piccione Macchina", "Bombardiro Crocodilo", "Ballerina Cappuccina".
-2. "lyrics": 10-18 seconds of Italian-accented nonsense. Start by naming the character twice. Use filler sounds (picci picci, brr brr, tralala, tung tung, sbada bim, la la la). End with a rhyming visual descriptor. No more than 35 words total. Absolutely NO religion, NO politics, NO violence, NO slurs — brand-safe for TikTok Creator Fund.
-3. "image_prompt": one-paragraph English prompt for Flux. Photorealistic, portrait 9:16, the fusion looking absurd and dreamlike, cinematic golden-hour lighting, shallow depth of field, film grain, centered subject, uncanny valley but charming. Describe the chimera clearly so the model renders the fusion.
+NAME: <2-4 pseudo-Italian words, -ino/-ina/-ello/-ato/-ana endings, rhyming and chantable>
+LYRICS: <10-18 seconds of Italian-accented nonsense. Start by naming the character twice. Use filler sounds (picci picci, brr brr, tralala, tung tung, sbada bim, la la la). End with a rhyming visual descriptor. 25-35 words. Brand-safe: NO religion, NO politics, NO violence, NO slurs.>
+IMAGE_PROMPT: <one dense English paragraph for Flux: photorealistic 9:16 portrait, the fusion looking absurd and dreamlike, cinematic golden-hour lighting, shallow depth of field, film grain, centered subject, surreal, charming.>
 
-Return ONLY the JSON. No markdown fences, no commentary.`;
+Examples of the style — do not copy these:
+NAME: Piccione Macchina
+LYRICS: Piccione macchina, piccione macchina! Picci picci ad ore mattina, sbada bim, sbada bim! Tralala truccino, scarpe bianche da spingipista, la la la!
+IMAGE_PROMPT: A hyper-detailed photorealistic 9:16 portrait of a pigeon seamlessly fused with a Tesla Cybertruck — the bird's feathered head and beady eyes merged onto angular stainless-steel body panels, geometric windows across its chest, glowing LED headlights under its beak, perched on wet Milan cobblestones at golden hour, dramatic rim light, film grain, shallow depth of field, uncanny valley charm, centered subject.`;
 
 const body = {
-  model: "openai",
+  model: "mistral",
   messages: [
     { role: "system", content: system },
     { role: "user", content: `chimera: ${seed}` },
   ],
-  response_format: { type: "json_object" },
-  max_tokens: 1500,
+  max_tokens: 900,
   temperature: 1.0,
 };
 
@@ -37,26 +38,26 @@ if (!resp.ok) {
 
 const json = await resp.json();
 const msg = json?.choices?.[0]?.message ?? {};
-const content = msg.content || msg.reasoning_content;
-if (!content) {
-  console.error(`No content in response: ${JSON.stringify(json).slice(0, 500)}`);
+const text = msg.content || msg.reasoning_content || "";
+if (!text) {
+  console.error(`No content: ${JSON.stringify(json).slice(0, 500)}`);
   process.exit(1);
 }
 
-let out;
-try {
-  out = JSON.parse(content);
-} catch {
-  const m = content.match(/\{[\s\S]*\}/);
-  if (!m) {
-    console.error("Script not JSON: " + content.slice(0, 500));
-    process.exit(1);
-  }
-  out = JSON.parse(m[0]);
+function field(label) {
+  const re = new RegExp(`${label}\\s*:\\s*(.+?)(?=\\n[A-Z_]{3,}\\s*:|$)`, "is");
+  const m = text.match(re);
+  return m ? m[1].trim().replace(/^["']|["']$/g, "") : null;
 }
 
+const out = {
+  name: field("NAME"),
+  lyrics: field("LYRICS"),
+  image_prompt: field("IMAGE_PROMPT"),
+};
+
 if (!out.name || !out.lyrics || !out.image_prompt) {
-  console.error("Missing fields: " + JSON.stringify(out));
+  console.error(`Parse failed. Raw: ${text.slice(0, 800)}`);
   process.exit(1);
 }
 
