@@ -1,9 +1,9 @@
 {
   "name": "flawed_roster",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "type": "module",
-  "description": "AI-generated vertical video engine. Replicate + HF + ffmpeg. Runs in GitHub Actions.",
+  "description": "AI-generated vertical video engine. Together.ai FLUX + HF TTS + ffmpeg. Runs in GitHub Actions.",
   "scripts": {
     "gen:image": "node engine/image.mjs",
     "gen:voice": "node engine/voice.mjs",
@@ -11,8 +11,7 @@
     "pipeline": "node engine/pipeline.mjs"
   },
   "dependencies": {
-    "@huggingface/inference": "^3.0.0",
-    "replicate": "^1.0.1"
+    "@huggingface/inference": "^3.0.0"
   },
   "engines": {
     "node": ">=20"
