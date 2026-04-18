@@ -16,12 +16,13 @@ LYRICS: Piccione macchina, piccione macchina! Picci picci ad ore mattina, sbada 
 IMAGE_PROMPT: A hyper-detailed photorealistic 9:16 portrait of a pigeon seamlessly fused with a Tesla Cybertruck — the bird's feathered head and beady eyes merged onto angular stainless-steel body panels, geometric windows across its chest, glowing LED headlights under its beak, perched on wet Milan cobblestones at golden hour, dramatic rim light, film grain, shallow depth of field, uncanny valley charm, centered subject.`;
 
 const body = {
-  model: "mistral",
+  model: "openai-fast",
+  reasoning_effort: "low",
   messages: [
     { role: "system", content: system },
     { role: "user", content: `chimera: ${seed}` },
   ],
-  max_tokens: 900,
+  max_tokens: 4000,
   temperature: 1.0,
 };
 
