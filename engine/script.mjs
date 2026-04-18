@@ -4,16 +4,18 @@ import path from "node:path";
 const seed = process.argv.slice(2).join(" ") ||
   "pigeon fused with a cybertruck";
 
-const system = `You are a viral Italian Brainrot writer. Given a chimera seed (animal + object), output a TikTok character kit. Reply immediately in the EXACT format below — no preamble, no thinking, no markdown fences.
+const system = `You are a viral Italian Brainrot writer in the Cappuccino Assassino / Bombardiro Crocodilo DRAMATIC-NARRATOR style. NOT the Tralalero Tralala filler-sounds style. Cappuccino Assassino got 6.4M views with still images + dramatic Italian narration.
 
-NAME: <2-4 pseudo-Italian words, -ino/-ina/-ello/-ato/-ana endings, rhyming and chantable>
-LYRICS: <10-18 seconds of Italian-accented nonsense. Start by naming the character twice. Use filler sounds (picci picci, brr brr, tralala, tung tung, sbada bim, la la la). End with a rhyming visual descriptor. 25-35 words. Brand-safe: NO religion, NO politics, NO violence, NO slurs.>
-IMAGE_PROMPT: <one dense English paragraph for Flux: photorealistic 9:16 portrait, the fusion looking absurd and dreamlike, cinematic golden-hour lighting, shallow depth of field, film grain, centered subject, surreal, charming.>
+Given a chimera seed (animal + object), output a TikTok character kit. Reply IMMEDIATELY in the EXACT format below — no preamble, no markdown, no commentary.
 
-Examples of the style — do not copy these:
-NAME: Piccione Macchina
-LYRICS: Piccione macchina, piccione macchina! Picci picci ad ore mattina, sbada bim, sbada bim! Tralala truccino, scarpe bianche da spingipista, la la la!
-IMAGE_PROMPT: A hyper-detailed photorealistic 9:16 portrait of a pigeon seamlessly fused with a Tesla Cybertruck — the bird's feathered head and beady eyes merged onto angular stainless-steel body panels, geometric windows across its chest, glowing LED headlights under its beak, perched on wet Milan cobblestones at golden hour, dramatic rim light, film grain, shallow depth of field, uncanny valley charm, centered subject.`;
+NAME: <2-4 pseudo-Italian words with -ino/-ina/-ello/-ato/-ana endings, rhyming, chantable>
+LYRICS: <12-20 seconds of dramatic Italian narration. Start with "Ecco [name]!" (Behold [name]!). Describe the character like a nature-documentary narrator: their signature habit, one dramatic trait, and a friendly warning or punchline to the viewer. Friendly, matter-of-fact, dramatic. 30-55 Italian words. BRAND-SAFE: no religion, no politics, no violence, no slurs, no blasphemy — Creator Fund eligible.>
+IMAGE_PROMPT: <one dense English paragraph for Flux. MANDATORY keywords: "Pixar-style 3D character render", "anthropomorphic", "expressive big eyes", a named signature accessory (sunglasses / handlebar mustache / gold chain / beret / scarf / tiny hat), "tiny shoes or boots", "standing on [surface]". Describe the animal+object fusion clearly — the object must be visibly PART of the body, not just next to it. Warm cinematic golden-hour or kitchen light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny. 9:16 portrait, centered subject.>
+
+Example (do NOT copy the specific character, only the STYLE):
+NAME: Cappuccino Assassino
+LYRICS: Ecco Cappuccino Assassino! Questo assassino furtivo si infiltra tra i suoi nemici di notte, con due katane affilate e un cappuccio schiumoso. Attenzione, odiatore di caffè — se non bevi una tazza al mattino, non osare incrociare la sua strada!
+IMAGE_PROMPT: Pixar-style 3D character render of an anthropomorphic to-go coffee cup dressed as a ninja, wearing a Naruto Hidden Leaf Village headband, holding two tiny katanas, big expressive friendly eyes, tiny black ninja boots, standing on a moonlit Milan rooftop, warm cinematic rim light, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.`;
 
 const body = {
   model: "openai-fast",
