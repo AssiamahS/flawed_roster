@@ -1,6 +1,17 @@
 {
   "clips": [
     {
+      "id": "clip-1776550550081",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinifarellino",
+      "lyrics": "Ecco Pinguinifarellino! Questa androgina bevoniata di corvi fa deserto di semafori con la cantilena di metallo, allegra e docemente pronta a forzare gli ingranaggi del traffico. Attenzione, viaggiatore intenso: la sua porta di accesso al carburante è più grande della tua corrente!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-Cybertruck fusion, wearing sleek neon yellow sunglasses, expressive big eyes, tiny metallic boots, standing on a sunny highway archway, warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1776550547773.png",
+      "voice": "out/voice-1776550547835.wav",
+      "clip": "out/clip-1776550550081.mp4",
+      "created_at": "2026-04-18T22:15:58.278Z"
+    },
+    {
       "id": "clip-1776550204120",
       "seed": "pigeon fused with a cybertruck",
       "name": "Piccettro Truccino",
@@ -20,5 +31,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-18T22:10:12.673Z"
+  "updated_at": "2026-04-18T22:15:58.278Z"
 }
