@@ -26,6 +26,19 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install piper-tts + voice model
+        run: |
+          pip install --quiet piper-tts
+          mkdir -p voices
+          BASE="https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium"
+          curl -sL -o voices/en_US-amy-medium.onnx "$BASE/en_US-amy-medium.onnx"
+          curl -sL -o voices/en_US-amy-medium.onnx.json "$BASE/en_US-amy-medium.onnx.json"
+
       - name: Generate
         run: |
           PROMPT="${{ github.event.inputs.prompt || 'three unexpected facts about the universe' }}"
