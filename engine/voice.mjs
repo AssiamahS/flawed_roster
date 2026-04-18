@@ -1,26 +1,26 @@
-import { InferenceClient } from "@huggingface/inference";
 import fs from "node:fs/promises";
 import path from "node:path";
-
-const token = process.env.HF_TOKEN;
-if (!token) {
-  console.error("HF_TOKEN not set");
-  process.exit(1);
-}
 
 const text = process.argv.slice(2).join(" ") ||
   "Three things you didn't know about the deep ocean.";
 
-const hf = new InferenceClient(token);
+const url = new URL(`https://text.pollinations.ai/${encodeURIComponent(text)}`);
+url.searchParams.set("model", "openai-audio");
+url.searchParams.set("voice", "nova");
 
-const blob = await hf.textToSpeech({
-  provider: "hf-inference",
-  model: "facebook/mms-tts-eng",
-  inputs: text,
-});
+const resp = await fetch(url, { headers: { "Accept": "audio/mpeg" } });
+if (!resp.ok) {
+  console.error(`Pollinations audio ${resp.status}: ${await resp.text()}`);
+  process.exit(1);
+}
 
-const buf = Buffer.from(await blob.arrayBuffer());
+const buf = Buffer.from(await resp.arrayBuffer());
+if (buf.length < 1024) {
+  console.error(`Audio too small (${buf.length}B), likely an error page`);
+  process.exit(1);
+}
+
 await fs.mkdir("out", { recursive: true });
-const out = path.join("out", `voice-${Date.now()}.wav`);
-await fs.writeFile(out, buf);
-process.stdout.write(out);
+const outPath = path.join("out", `voice-${Date.now()}.mp3`);
+await fs.writeFile(outPath, buf);
+process.stdout.write(outPath);
