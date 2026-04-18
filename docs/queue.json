@@ -1,6 +1,17 @@
 {
   "clips": [
     {
+      "id": "clip-1776550204120",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Piccettro Truccino",
+      "lyrics": "Piccettro Truccino, piccettro truccino! Picci picci in trance, brr brr, tralala, tung tung, sbada bim, la la la! Vento sfreccia, zuce lucente, e la nube risponde, brillante e riderelli, rossa fosca di neon, sempre leggero come un tesserezu!",
+      "image_prompt": "A hyper-detailed photorealistic 9:16 portrait of a pigeon seamlessly fused with a Cybertruck, where the bird's feathered head and sharp beak grow into the vehicle's chrome grille and LED headlights, its wings tucked across the hood as if in flight, set on a misty downtown street under a warm golden-hour glow, dramatic rim lighting, shallow depth of field, subtle film grain, surreal yet charming, centered subject.",
+      "image": "out/image-1776550201779.png",
+      "voice": "out/voice-1776550201863.wav",
+      "clip": "out/clip-1776550204120.mp4",
+      "created_at": "2026-04-18T22:10:12.673Z"
+    },
+    {
       "id": "clip-1776549246012",
       "prompt": "three unexpected facts about the octopus",
       "image": "out/image-1776549244334.png",
@@ -9,5 +20,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-18T21:54:07.991Z"
+  "updated_at": "2026-04-18T22:10:12.673Z"
 }
