@@ -31,9 +31,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install piper-tts + italian voice model
+      - name: Install piper-tts + whisper + italian voice model
         run: |
-          pip install --quiet piper-tts
+          pip install --quiet piper-tts openai-whisper
           mkdir -p voices
           BASE="https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low"
           curl -sL -o voices/it_IT-riccardo-x_low.onnx "$BASE/it_IT-riccardo-x_low.onnx"

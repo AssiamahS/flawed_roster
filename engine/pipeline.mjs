@@ -30,7 +30,10 @@ console.error(`> image:  ${imgPath}`);
 const voicePath = run("engine/voice.mjs", [script.lyrics]);
 console.error(`> voice:  ${voicePath}`);
 
-const clipPath = run("engine/compose.mjs", [imgPath, voicePath, script.name]);
+const captionsPath = run("engine/captions.mjs", [voicePath]);
+console.error(`> caps:   ${captionsPath}`);
+
+const clipPath = run("engine/compose.mjs", [imgPath, voicePath, script.name, captionsPath]);
 console.error(`> clip:   ${clipPath}`);
 
 const entry = {
@@ -41,6 +44,7 @@ const entry = {
   image_prompt: script.image_prompt,
   image: imgPath,
   voice: voicePath,
+  captions: captionsPath,
   clip: clipPath,
   created_at: new Date().toISOString(),
 };

@@ -2,9 +2,9 @@ import { execSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const [, , img, audio, title] = process.argv;
+const [, , img, audio, title, captions] = process.argv;
 if (!img || !audio) {
-  console.error("usage: compose.mjs <image.png> <audio> [title]");
+  console.error("usage: compose.mjs <image.png> <audio> [title] [captions.srt]");
   process.exit(1);
 }
 
@@ -27,6 +27,23 @@ if (title) {
   vfParts.push(
     `drawtext=fontfile=${font}:text='${esc}':fontsize=78:fontcolor=white:borderw=6:bordercolor=black:x=(w-text_w)/2:y=200`,
   );
+}
+
+if (captions) {
+  const escPath = captions.replace(/:/g, "\\:").replace(/'/g, "\\'");
+  const style = [
+    "FontName=DejaVu Sans",
+    "FontSize=22",
+    "Bold=1",
+    "PrimaryColour=&H00FFFFFF",
+    "OutlineColour=&H00000000",
+    "BackColour=&H80000000",
+    "Outline=4",
+    "Shadow=1",
+    "Alignment=5",
+    "MarginV=0",
+  ].join(",");
+  vfParts.push(`subtitles=${escPath}:force_style='${style}'`);
 }
 
 const cmd = [
