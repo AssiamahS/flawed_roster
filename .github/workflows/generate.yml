@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       prompt:
-        description: "Topic / script"
+        description: "Chimera seed (animal + object)"
         required: true
-        default: "three facts about the deep ocean"
+        default: "pigeon fused with a cybertruck"
   schedule:
     - cron: "0 */8 * * *"
 
@@ -31,17 +31,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install piper-tts + voice model
+      - name: Install piper-tts + italian voice model
         run: |
           pip install --quiet piper-tts
           mkdir -p voices
-          BASE="https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium"
-          curl -sL -o voices/en_US-amy-medium.onnx "$BASE/en_US-amy-medium.onnx"
-          curl -sL -o voices/en_US-amy-medium.onnx.json "$BASE/en_US-amy-medium.onnx.json"
+          BASE="https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low"
+          curl -sL -o voices/it_IT-riccardo-x_low.onnx "$BASE/it_IT-riccardo-x_low.onnx"
+          curl -sL -o voices/it_IT-riccardo-x_low.onnx.json "$BASE/it_IT-riccardo-x_low.onnx.json"
 
       - name: Generate
         run: |
-          PROMPT="${{ github.event.inputs.prompt || 'three unexpected facts about the universe' }}"
+          PROMPT="${{ github.event.inputs.prompt || 'pigeon fused with a cybertruck' }}"
           node engine/pipeline.mjs "$PROMPT"
 
       - uses: actions/upload-artifact@v4

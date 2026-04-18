@@ -1,33 +1,44 @@
-import { execSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const prompt = process.argv.slice(2).join(" ") ||
-  "three facts about the octopus";
+const seed = process.argv.slice(2).join(" ") ||
+  "pigeon fused with a cybertruck";
 
-console.error(`> prompt: ${prompt}`);
+console.error(`> seed: ${seed}`);
 
-const imgPath = execSync(`node engine/image.mjs "${prompt}, cinematic 9:16, moody"`, {
-  encoding: "utf8",
-  stdio: ["inherit", "pipe", "inherit"],
-}).trim();
-console.error(`> image: ${imgPath}`);
+function run(script, args) {
+  const r = spawnSync("node", [script, ...args], {
+    encoding: "utf8",
+    stdio: ["inherit", "pipe", "inherit"],
+  });
+  if (r.status !== 0) {
+    console.error(`${script} exited ${r.status}`);
+    process.exit(r.status || 1);
+  }
+  return r.stdout.trim();
+}
 
-const voicePath = execSync(`node engine/voice.mjs "${prompt}"`, {
-  encoding: "utf8",
-  stdio: ["inherit", "pipe", "inherit"],
-}).trim();
-console.error(`> voice: ${voicePath}`);
+const scriptPath = run("engine/script.mjs", [seed]);
+const script = JSON.parse(await fs.readFile(scriptPath, "utf8"));
+console.error(`> name:   ${script.name}`);
+console.error(`> lyrics: ${script.lyrics}`);
 
-const clipPath = execSync(`node engine/compose.mjs "${imgPath}" "${voicePath}"`, {
-  encoding: "utf8",
-  stdio: ["inherit", "pipe", "inherit"],
-}).trim();
-console.error(`> clip:  ${clipPath}`);
+const imgPath = run("engine/image.mjs", [script.image_prompt]);
+console.error(`> image:  ${imgPath}`);
+
+const voicePath = run("engine/voice.mjs", [script.lyrics]);
+console.error(`> voice:  ${voicePath}`);
+
+const clipPath = run("engine/compose.mjs", [imgPath, voicePath, script.name]);
+console.error(`> clip:   ${clipPath}`);
 
 const entry = {
   id: path.basename(clipPath, ".mp4"),
-  prompt,
+  seed,
+  name: script.name,
+  lyrics: script.lyrics,
+  image_prompt: script.image_prompt,
   image: imgPath,
   voice: voicePath,
   clip: clipPath,

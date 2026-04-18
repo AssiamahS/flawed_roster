@@ -10,7 +10,7 @@ const outPath = path.join("out", `voice-${Date.now()}.wav`);
 const txtPath = path.join("out", `script-${Date.now()}.txt`);
 await fs.writeFile(txtPath, text);
 
-const model = process.env.PIPER_MODEL || "voices/en_US-amy-medium.onnx";
+const model = process.env.PIPER_MODEL || "voices/it_IT-riccardo-x_low.onnx";
 
 execSync(
   `piper --model "${model}" --output_file "${outPath}" < "${txtPath}"`,
