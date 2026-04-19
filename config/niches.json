@@ -1,0 +1,72 @@
+{
+  "active": "brainrot",
+  "profiles": {
+    "brainrot": {
+      "description": "Italian Brainrot AI character clips in Cappuccino Assassino lore-narrator style",
+      "voice_model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low/it_IT-riccardo-x_low.onnx",
+      "voice_model_config_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low/it_IT-riccardo-x_low.onnx.json",
+      "voice_model_file": "voices/it_IT-riccardo-x_low.onnx",
+      "whisper_language": "it",
+      "default_seed": "pigeon fused with a cybertruck",
+      "hashtags": [
+        "#italianbrainrot",
+        "#brainrot",
+        "#tralalero",
+        "#cappuccinoassassino",
+        "#fyp",
+        "#aiart",
+        "#viral"
+      ],
+      "system_prompt_file": "config/prompts/brainrot.txt"
+    },
+    "beauty": {
+      "description": "Beauty / skincare product reviews with dramatic narrator hook",
+      "voice_model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
+      "voice_model_config_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium/en_US-amy-medium.onnx.json",
+      "voice_model_file": "voices/en_US-amy-medium.onnx",
+      "whisper_language": "en",
+      "default_seed": "vitamin C serum that faded dark spots in 7 days",
+      "hashtags": [
+        "#tiktokshop",
+        "#tiktokmademebuyit",
+        "#beautyfinds",
+        "#skincare",
+        "#skincareroutine",
+        "#fyp"
+      ],
+      "system_prompt_file": "config/prompts/beauty.txt"
+    },
+    "supplements": {
+      "description": "Supplement / wellness product demos (highest TikTok Shop commission 25-30%)",
+      "voice_model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/ryan/high/en_US-ryan-high.onnx",
+      "voice_model_config_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/ryan/high/en_US-ryan-high.onnx.json",
+      "voice_model_file": "voices/en_US-ryan-high.onnx",
+      "whisper_language": "en",
+      "default_seed": "ashwagandha supplement that fixed my sleep and energy",
+      "hashtags": [
+        "#tiktokshop",
+        "#wellnesstok",
+        "#supplements",
+        "#biohacking",
+        "#fyp"
+      ],
+      "system_prompt_file": "config/prompts/supplements.txt"
+    },
+    "pets": {
+      "description": "Pet products & funny pet characters — high engagement, low saturation for AI",
+      "voice_model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
+      "voice_model_config_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/medium/en_US-amy-medium.onnx.json",
+      "voice_model_file": "voices/en_US-amy-medium.onnx",
+      "whisper_language": "en",
+      "default_seed": "golden retriever who just discovered the snuffle mat",
+      "hashtags": [
+        "#petsoftiktok",
+        "#dogtok",
+        "#tiktokshop",
+        "#dogproducts",
+        "#fyp"
+      ],
+      "system_prompt_file": "config/prompts/pets.txt"
+    }
+  }
+}

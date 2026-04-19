@@ -8,13 +8,17 @@ if (!audioPath) {
   process.exit(1);
 }
 
+const nichesCfg = JSON.parse(await fs.readFile("config/niches.json", "utf8"));
+const nicheKey = process.env.NICHE || nichesCfg.active;
+const language = nichesCfg.profiles[nicheKey]?.whisper_language || "it";
+
 await fs.mkdir("out", { recursive: true });
 const base = path.basename(audioPath, path.extname(audioPath));
 const jsonOut = path.join("out", `${base}.json`);
 const srtOut = path.join("out", `${base}.srt`);
 
 execSync(
-  `whisper "${audioPath}" --model base --language it --output_format json --output_dir out --word_timestamps True --verbose False`,
+  `whisper "${audioPath}" --model base --language ${language} --output_format json --output_dir out --word_timestamps True --verbose False`,
   { stdio: "inherit" },
 );
 

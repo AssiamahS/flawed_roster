@@ -3,10 +3,20 @@ name: Generate Clip
 on:
   workflow_dispatch:
     inputs:
-      prompt:
-        description: "Chimera seed (animal + object)"
+      niche:
+        description: "Niche profile (brainrot | beauty | supplements | pets)"
         required: true
-        default: "pigeon fused with a cybertruck"
+        default: "brainrot"
+        type: choice
+        options:
+          - brainrot
+          - beauty
+          - supplements
+          - pets
+      prompt:
+        description: "Seed (leave blank for niche default)"
+        required: false
+        default: ""
   schedule:
     - cron: "0 */8 * * *"
 
@@ -16,6 +26,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NICHE: ${{ github.event.inputs.niche || 'brainrot' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -31,22 +43,25 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install piper-tts + whisper + italian voice model
+      - name: Install piper-tts + whisper
+        run: pip install --quiet piper-tts openai-whisper
+
+      - name: Download niche voice model
         run: |
-          pip install --quiet piper-tts openai-whisper
           mkdir -p voices
-          BASE="https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low"
-          curl -sL -o voices/it_IT-riccardo-x_low.onnx "$BASE/it_IT-riccardo-x_low.onnx"
-          curl -sL -o voices/it_IT-riccardo-x_low.onnx.json "$BASE/it_IT-riccardo-x_low.onnx.json"
+          MODEL_URL=$(node -e "const c=require('./config/niches.json');console.log(c.profiles[process.env.NICHE].voice_model_url)")
+          CONFIG_URL=$(node -e "const c=require('./config/niches.json');console.log(c.profiles[process.env.NICHE].voice_model_config_url)")
+          MODEL_FILE=$(node -e "const c=require('./config/niches.json');console.log(c.profiles[process.env.NICHE].voice_model_file)")
+          echo "Downloading $MODEL_URL"
+          curl -sL -o "$MODEL_FILE" "$MODEL_URL"
+          curl -sL -o "$MODEL_FILE.json" "$CONFIG_URL"
 
       - name: Generate
-        run: |
-          PROMPT="${{ github.event.inputs.prompt || 'pigeon fused with a cybertruck' }}"
-          node engine/pipeline.mjs "$PROMPT"
+        run: node engine/pipeline.mjs "${{ github.event.inputs.prompt }}"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: clip-${{ github.run_id }}
+          name: clip-${{ github.run_id }}-${{ env.NICHE }}
           path: out/*.mp4
           retention-days: 30
 
@@ -55,5 +70,5 @@ jobs:
           git config user.name "flawed_roster-bot"
           git config user.email "bot@flawed-roster.local"
           git add docs/queue.json
-          git diff --cached --quiet || git commit -m "queue: new clip from run ${{ github.run_id }}"
+          git diff --cached --quiet || git commit -m "queue: ${{ env.NICHE }} clip from run ${{ github.run_id }}"
           git push || true
