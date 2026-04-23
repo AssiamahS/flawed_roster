@@ -33,7 +33,12 @@ console.error(`> voice:  ${voicePath}`);
 const captionsPath = run("engine/captions.mjs", [voicePath]);
 console.error(`> caps:   ${captionsPath}`);
 
-const clipPath = run("engine/compose.mjs", [imgPath, voicePath, script.name, captionsPath]);
+const nichesCfg = JSON.parse(await fs.readFile("config/niches.json", "utf8"));
+const nicheKey = process.env.NICHE || nichesCfg.active;
+const nicheProfile = nichesCfg.profiles[nicheKey];
+const composer = nicheProfile?.composer === "dance" ? "engine/dance_render.mjs" : "engine/compose.mjs";
+
+const clipPath = run(composer, [imgPath, voicePath, script.name, captionsPath]);
 console.error(`> clip:   ${clipPath}`);
 
 const entry = {

@@ -1,0 +1,297 @@
+{
+  "source": "Animations/universal/UAL1_Standard.glb",
+  "generatedAt": "2026-04-19T23:27:29.430Z",
+  "characterCount": 1,
+  "rig": [
+    "Hips",
+    "Spine",
+    "Neck",
+    "Head",
+    "Left_Shoulder",
+    "Left_Upper_Arm",
+    "Left_Lower_Arm",
+    "Left_Hand",
+    "Right_Shoulder",
+    "Right_Upper_Arm",
+    "Right_Lower_Arm",
+    "Right_Hand",
+    "Left_Upper_Leg",
+    "Left_Lower_Leg",
+    "Left_Foot",
+    "Right_Upper_Leg",
+    "Right_Lower_Leg",
+    "Right_Foot"
+  ],
+  "clips": [
+    {
+      "file": "a-tpose.animation.json",
+      "name": "A_TPose",
+      "duration": 2.5,
+      "keyframes": 76
+    },
+    {
+      "file": "crouch-fwd-loop.animation.json",
+      "name": "Crouch_Fwd_Loop",
+      "duration": 2,
+      "keyframes": 61
+    },
+    {
+      "file": "crouch-idle-loop.animation.json",
+      "name": "Crouch_Idle_Loop",
+      "duration": 2.933333,
+      "keyframes": 89
+    },
+    {
+      "file": "dance-loop.animation.json",
+      "name": "Dance_Loop",
+      "duration": 1,
+      "keyframes": 31
+    },
+    {
+      "file": "death01.animation.json",
+      "name": "Death01",
+      "duration": 2.4,
+      "keyframes": 73
+    },
+    {
+      "file": "driving-loop.animation.json",
+      "name": "Driving_Loop",
+      "duration": 1.666667,
+      "keyframes": 51
+    },
+    {
+      "file": "fixing-kneeling.animation.json",
+      "name": "Fixing_Kneeling",
+      "duration": 5.2,
+      "keyframes": 157
+    },
+    {
+      "file": "hit-chest.animation.json",
+      "name": "Hit_Chest",
+      "duration": 0.333333,
+      "keyframes": 11
+    },
+    {
+      "file": "hit-head.animation.json",
+      "name": "Hit_Head",
+      "duration": 0.433333,
+      "keyframes": 14
+    },
+    {
+      "file": "idle-loop.animation.json",
+      "name": "Idle_Loop",
+      "duration": 2.5,
+      "keyframes": 76
+    },
+    {
+      "file": "idle-talking-loop.animation.json",
+      "name": "Idle_Talking_Loop",
+      "duration": 2.933333,
+      "keyframes": 89
+    },
+    {
+      "file": "idle-torch-loop.animation.json",
+      "name": "Idle_Torch_Loop",
+      "duration": 1.266667,
+      "keyframes": 39
+    },
+    {
+      "file": "interact.animation.json",
+      "name": "Interact",
+      "duration": 2,
+      "keyframes": 61
+    },
+    {
+      "file": "jog-fwd-loop.animation.json",
+      "name": "Jog_Fwd_Loop",
+      "duration": 0.933333,
+      "keyframes": 29
+    },
+    {
+      "file": "jump-land.animation.json",
+      "name": "Jump_Land",
+      "duration": 1.266667,
+      "keyframes": 39
+    },
+    {
+      "file": "jump-loop.animation.json",
+      "name": "Jump_Loop",
+      "duration": 2.5,
+      "keyframes": 76
+    },
+    {
+      "file": "jump-start.animation.json",
+      "name": "Jump_Start",
+      "duration": 1.333333,
+      "keyframes": 41
+    },
+    {
+      "file": "pickup-table.animation.json",
+      "name": "PickUp_Table",
+      "duration": 0.833333,
+      "keyframes": 26
+    },
+    {
+      "file": "pistol-aim-down.animation.json",
+      "name": "Pistol_Aim_Down",
+      "duration": 0.166667,
+      "keyframes": 6
+    },
+    {
+      "file": "pistol-aim-neutral.animation.json",
+      "name": "Pistol_Aim_Neutral",
+      "duration": 0.166667,
+      "keyframes": 6
+    },
+    {
+      "file": "pistol-aim-up.animation.json",
+      "name": "Pistol_Aim_Up",
+      "duration": 0.166667,
+      "keyframes": 6
+    },
+    {
+      "file": "pistol-idle-loop.animation.json",
+      "name": "Pistol_Idle_Loop",
+      "duration": 1.666667,
+      "keyframes": 51
+    },
+    {
+      "file": "pistol-reload.animation.json",
+      "name": "Pistol_Reload",
+      "duration": 1.666667,
+      "keyframes": 51
+    },
+    {
+      "file": "pistol-shoot.animation.json",
+      "name": "Pistol_Shoot",
+      "duration": 0.633333,
+      "keyframes": 20
+    },
+    {
+      "file": "punch-cross.animation.json",
+      "name": "Punch_Cross",
+      "duration": 1,
+      "keyframes": 31
+    },
+    {
+      "file": "punch-jab.animation.json",
+      "name": "Punch_Jab",
+      "duration": 0.866667,
+      "keyframes": 27
+    },
+    {
+      "file": "push-loop.animation.json",
+      "name": "Push_Loop",
+      "duration": 2.666667,
+      "keyframes": 81
+    },
+    {
+      "file": "roll.animation.json",
+      "name": "Roll",
+      "duration": 1.466667,
+      "keyframes": 45
+    },
+    {
+      "file": "roll-rm.animation.json",
+      "name": "Roll_RM",
+      "duration": 1.466667,
+      "keyframes": 45
+    },
+    {
+      "file": "sitting-enter.animation.json",
+      "name": "Sitting_Enter",
+      "duration": 1.3,
+      "keyframes": 40
+    },
+    {
+      "file": "sitting-exit.animation.json",
+      "name": "Sitting_Exit",
+      "duration": 1.033333,
+      "keyframes": 32
+    },
+    {
+      "file": "sitting-idle-loop.animation.json",
+      "name": "Sitting_Idle_Loop",
+      "duration": 1.666667,
+      "keyframes": 51
+    },
+    {
+      "file": "sitting-talking-loop.animation.json",
+      "name": "Sitting_Talking_Loop",
+      "duration": 2.933333,
+      "keyframes": 89
+    },
+    {
+      "file": "spell-simple-enter.animation.json",
+      "name": "Spell_Simple_Enter",
+      "duration": 0.533333,
+      "keyframes": 17
+    },
+    {
+      "file": "spell-simple-exit.animation.json",
+      "name": "Spell_Simple_Exit",
+      "duration": 0.433333,
+      "keyframes": 14
+    },
+    {
+      "file": "spell-simple-idle-loop.animation.json",
+      "name": "Spell_Simple_Idle_Loop",
+      "duration": 2.1,
+      "keyframes": 64
+    },
+    {
+      "file": "spell-simple-shoot.animation.json",
+      "name": "Spell_Simple_Shoot",
+      "duration": 0.5,
+      "keyframes": 16
+    },
+    {
+      "file": "sprint-loop.animation.json",
+      "name": "Sprint_Loop",
+      "duration": 0.666667,
+      "keyframes": 21
+    },
+    {
+      "file": "swim-fwd-loop.animation.json",
+      "name": "Swim_Fwd_Loop",
+      "duration": 1.333333,
+      "keyframes": 41
+    },
+    {
+      "file": "swim-idle-loop.animation.json",
+      "name": "Swim_Idle_Loop",
+      "duration": 3.333333,
+      "keyframes": 101
+    },
+    {
+      "file": "sword-attack.animation.json",
+      "name": "Sword_Attack",
+      "duration": 1.533333,
+      "keyframes": 47
+    },
+    {
+      "file": "sword-attack-rm.animation.json",
+      "name": "Sword_Attack_RM",
+      "duration": 1.533333,
+      "keyframes": 47
+    },
+    {
+      "file": "sword-idle.animation.json",
+      "name": "Sword_Idle",
+      "duration": 1.666667,
+      "keyframes": 51
+    },
+    {
+      "file": "walk-formal-loop.animation.json",
+      "name": "Walk_Formal_Loop",
+      "duration": 1.333333,
+      "keyframes": 41
+    },
+    {
+      "file": "walk-loop.animation.json",
+      "name": "Walk_Loop",
+      "duration": 1.333333,
+      "keyframes": 41
+    }
+  ]
+}

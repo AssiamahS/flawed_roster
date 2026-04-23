@@ -1,6 +1,6 @@
 {
   "name": "flawed_roster",
-  "version": "0.1.20",
+  "version": "0.1.22",
   "private": true,
   "type": "module",
   "description": "AI-generated vertical video engine. Pollinations FLUX + TTS + ffmpeg. Runs in GitHub Actions.",
@@ -8,9 +8,12 @@
     "gen:image": "node engine/image.mjs",
     "gen:voice": "node engine/voice.mjs",
     "compose": "node engine/compose.mjs",
+    "dance": "node engine/dance_render.mjs",
     "pipeline": "node engine/pipeline.mjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "puppeteer": "^23.0.0"
+  },
   "engines": {
     "node": ">=20"
   }

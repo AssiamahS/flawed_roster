@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>dance</title>
+  <style>
+    html,body{margin:0;padding:0;background:#000;overflow:hidden}
+    canvas{display:block}
+  </style>
+</head>
+<body>
+<script type="importmap">
+{"imports":{"three":"https://esm.sh/three@0.160.0"}}
+</script>
+<script type="module">
+import * as THREE from "three";
+
+const W = 1080, H = 1920;
+
+const scene = new THREE.Scene();
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+document.body.appendChild(renderer.domElement);
+
+const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+camera.position.set(0, 3.2, 11);
+camera.lookAt(0, 2.4, 0);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+const key = new THREE.DirectionalLight(0xffffff, 1.4);
+key.position.set(4, 8, 6);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xff7ae0, 0.55);
+rim.position.set(-5, 3, -4);
+scene.add(rim);
+
+async function loadBackground(url) {
+  if (!url) return;
+  const tex = await new THREE.TextureLoader().loadAsync(url);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const bgGeom = new THREE.PlaneGeometry(18, 32);
+  const bgMat = new THREE.MeshBasicMaterial({ map: tex });
+  const bg = new THREE.Mesh(bgGeom, bgMat);
+  bg.position.set(0, 3.2, -5);
+  scene.add(bg);
+}
+
+function cube(w, h, d, color) {
+  const m = new THREE.Mesh(
+    new THREE.BoxGeometry(w, h, d),
+    new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.12 }),
+  );
+  return m;
+}
+
+function buildRig(color) {
+  const joints = {};
+  const hips = new THREE.Group(); hips.position.set(0, 2.6, 0); scene.add(hips); joints.Hips = hips;
+  const hipsBox = cube(0.9, 0.45, 0.6, color); hips.add(hipsBox);
+
+  const spine = new THREE.Group(); spine.position.set(0, 0.4, 0); hips.add(spine); joints.Spine = spine;
+  const spineBox = cube(0.8, 0.95, 0.55, color); spineBox.position.y = 0.48; spine.add(spineBox);
+
+  const head = new THREE.Group(); head.position.set(0, 1.1, 0); spine.add(head); joints.Head = head;
+  const headBox = cube(0.6, 0.6, 0.6, color); headBox.position.y = 0.3; head.add(headBox);
+
+  const mkLimb = (parent, x, y, len, w) => {
+    const upper = new THREE.Group(); upper.position.set(x, y, 0); parent.add(upper);
+    const upperBox = cube(w, len, w, color); upperBox.position.y = -len / 2; upper.add(upperBox);
+    const lower = new THREE.Group(); lower.position.set(0, -len, 0); upper.add(lower);
+    const lowerBox = cube(w * 0.9, len, w * 0.9, color); lowerBox.position.y = -len / 2; lower.add(lowerBox);
+    return { upper, lower };
+  };
+
+  const la = mkLimb(spine, 0.55, 0.9, 0.6, 0.22); joints.Left_Upper_Arm = la.upper; joints.Left_Lower_Arm = la.lower;
+  const ra = mkLimb(spine, -0.55, 0.9, 0.6, 0.22); joints.Right_Upper_Arm = ra.upper; joints.Right_Lower_Arm = ra.lower;
+  const ll = mkLimb(hips, 0.24, -0.2, 0.75, 0.28); joints.Left_Upper_Leg = ll.upper; joints.Left_Lower_Leg = ll.lower;
+  const rl = mkLimb(hips, -0.24, -0.2, 0.75, 0.28); joints.Right_Upper_Leg = rl.upper; joints.Right_Lower_Leg = rl.lower;
+
+  return joints;
+}
+
+function sampleKeyframes(keyframes, t) {
+  if (keyframes.length === 0) return null;
+  if (t <= keyframes[0].time) return keyframes[0].pose;
+  if (t >= keyframes[keyframes.length - 1].time) return keyframes[keyframes.length - 1].pose;
+  let i = 0;
+  while (i < keyframes.length - 1 && keyframes[i + 1].time < t) i++;
+  const a = keyframes[i], b = keyframes[i + 1];
+  const u = (t - a.time) / (b.time - a.time);
+  const out = {};
+  const names = new Set([...Object.keys(a.pose), ...Object.keys(b.pose)]);
+  const tmpA = new THREE.Quaternion();
+  const tmpB = new THREE.Quaternion();
+  for (const name of names) {
+    const pa = a.pose[name] ?? b.pose[name];
+    const pb = b.pose[name] ?? a.pose[name];
+    const pos = [
+      pa.position[0] + (pb.position[0] - pa.position[0]) * u,
+      pa.position[1] + (pb.position[1] - pa.position[1]) * u,
+      pa.position[2] + (pb.position[2] - pa.position[2]) * u,
+    ];
+    tmpA.fromArray(pa.quaternion);
+    tmpB.fromArray(pb.quaternion);
+    tmpA.slerp(tmpB, u);
+    out[name] = { position: pos, quaternion: [tmpA.x, tmpA.y, tmpA.z, tmpA.w] };
+  }
+  return out;
+}
+
+function applyPose(joints, pose) {
+  for (const [rawName, transform] of Object.entries(pose)) {
+    const name = rawName.replace(/_\d+$/, "");
+    const j = joints[name];
+    if (!j) continue;
+    j.position.fromArray(transform.position);
+    j.quaternion.fromArray(transform.quaternion);
+  }
+}
+
+let state = { joints: null, clip: null, duration: 0 };
+
+window.__boot = async ({ animation, backgroundUrl, color }) => {
+  await loadBackground(backgroundUrl);
+  state.joints = buildRig(color || "#5eead4");
+  state.clip = animation;
+  state.duration = animation.keyframes[animation.keyframes.length - 1].time;
+  window.__duration = state.duration;
+  window.__ready = true;
+};
+
+window.__renderAt = (t) => {
+  if (!state.clip) return;
+  const looped = ((t % state.duration) + state.duration) % state.duration;
+  const pose = sampleKeyframes(state.clip.keyframes, looped);
+  if (pose) applyPose(state.joints, pose);
+  renderer.render(scene, camera);
+};
+</script>
+</body>
+</html>
