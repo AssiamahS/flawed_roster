@@ -66,7 +66,7 @@ const audioDurationSec = Number(
     encoding: "utf8",
   }).trim(),
 ) || 6;
-const totalSec = Math.max(3, Math.min(60, audioDurationSec));
+const totalSec = Math.max(audioDurationSec, Math.min(20, duration));
 const totalFrames = Math.ceil(totalSec * fps);
 
 const framesDir = path.join("out", `frames-${Date.now()}`);
