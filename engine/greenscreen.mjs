@@ -10,9 +10,9 @@ if (!img || !audio) {
 
 const gsUrl = process.env.GS_URL
   || "https://www.tiktok.com/@igreenscreenthings/video/7501863875843755294";
-const gsHex = process.env.GS_KEY_COLOR || "0x00b140";
-const gsSim = process.env.GS_KEY_SIM || "0.30";
-const gsBlend = process.env.GS_KEY_BLEND || "0.08";
+const gsHex = process.env.GS_KEY_COLOR || "0x02f303";
+const gsSim = process.env.GS_KEY_SIM || "0.28";
+const gsBlend = process.env.GS_KEY_BLEND || "0.12";
 
 const tmp = `/tmp/gs-${Date.now()}`;
 await fs.mkdir(tmp, { recursive: true });
