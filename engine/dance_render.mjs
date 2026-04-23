@@ -13,13 +13,27 @@ if (!img || !audio) {
 }
 
 const animDir = path.join(root, "Animations");
-const pool = (await fs.readdir(animDir))
-  .filter((f) => f.endsWith(".animation.json") && !f.startsWith("summoning"));
-if (pool.length === 0) {
-  console.error("no animations found in Animations/");
-  process.exit(1);
+const forcedMotion = process.env.MOTION;
+let pick;
+if (forcedMotion) {
+  pick = forcedMotion;
+} else {
+  const all = await fs.readdir(animDir);
+  const ripped = all.filter((f) => f.startsWith("rip-") && f.endsWith(".animation.json"));
+  const curated = [
+    "forwardflip-realistic.animation.json",
+    "spinningkick-realistic.animation.json",
+    "spinningslash-overdrive.animation.json",
+    "powerbomb.animation.json",
+    "walking-realistic.animation.json",
+  ].filter((f) => all.includes(f));
+  const pool = ripped.length > 0 ? ripped : curated;
+  if (pool.length === 0) {
+    console.error("no animations found in Animations/");
+    process.exit(1);
+  }
+  pick = pool[Math.floor(Math.random() * pool.length)];
 }
-const pick = pool[Math.floor(Math.random() * pool.length)];
 const animPath = path.join(animDir, pick);
 const animation = JSON.parse(await fs.readFile(animPath, "utf8"));
 console.error(`> dance: ${pick}`);

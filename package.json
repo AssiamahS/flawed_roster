@@ -9,6 +9,7 @@
     "gen:voice": "node engine/voice.mjs",
     "compose": "node engine/compose.mjs",
     "dance": "node engine/dance_render.mjs",
+    "rip": "python3 engine/rip_tiktok.py",
     "pipeline": "node engine/pipeline.mjs"
   },
   "dependencies": {
