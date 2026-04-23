@@ -47,9 +47,9 @@ jobs:
       - name: Install piper-tts + whisper
         run: pip install --quiet piper-tts openai-whisper
 
-      - name: Install node deps (dance niche only)
+      - name: Install yt-dlp (greenscreen dance niche)
         if: env.NICHE == 'dancing_brainrot'
-        run: npm install --omit=optional --no-audit --no-fund
+        run: pip install --quiet yt-dlp
 
       - name: Download niche voice model
         run: |

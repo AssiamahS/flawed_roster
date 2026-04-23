@@ -36,7 +36,15 @@ console.error(`> caps:   ${captionsPath}`);
 const nichesCfg = JSON.parse(await fs.readFile("config/niches.json", "utf8"));
 const nicheKey = process.env.NICHE || nichesCfg.active;
 const nicheProfile = nichesCfg.profiles[nicheKey];
-const composer = nicheProfile?.composer === "dance" ? "engine/dance_render.mjs" : "engine/compose.mjs";
+const composerChoice = nicheProfile?.composer;
+const composer =
+  composerChoice === "greenscreen" ? "engine/greenscreen.mjs" :
+  composerChoice === "dance"       ? "engine/dance_render.mjs" :
+                                      "engine/compose.mjs";
+
+if (composerChoice === "greenscreen" && nicheProfile.greenscreen_url && !process.env.GS_URL) {
+  process.env.GS_URL = nicheProfile.greenscreen_url;
+}
 
 const clipPath = run(composer, [imgPath, voicePath, script.name, captionsPath]);
 console.error(`> clip:   ${clipPath}`);
