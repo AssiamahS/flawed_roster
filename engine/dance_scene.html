@@ -28,29 +28,35 @@ camera.position.set(0, 2.6, 16);
 camera.lookAt(0, 2.0, 0);
 
 async function loadBackground(url) {
-  if (!url) return;
+  if (!url) return null;
   const tex = await new THREE.TextureLoader().loadAsync(url);
   tex.colorSpace = THREE.SRGBColorSpace;
   scene.background = tex;
+  const face = await new THREE.TextureLoader().loadAsync(url);
+  face.colorSpace = THREE.SRGBColorSpace;
+  return face;
 }
 
-function cube(w, h, d, color) {
+function cube(w, h, d, color, faceTexture) {
   const base = new THREE.Color(color);
   const top = base.clone().multiplyScalar(1.25);
   const side = base.clone().multiplyScalar(0.9);
   const bot = base.clone().multiplyScalar(0.55);
+  const front = faceTexture
+    ? new THREE.MeshBasicMaterial({ map: faceTexture })
+    : new THREE.MeshBasicMaterial({ color: base });
   const faceMats = [
     new THREE.MeshBasicMaterial({ color: side }),
     new THREE.MeshBasicMaterial({ color: side.clone().multiplyScalar(0.85) }),
     new THREE.MeshBasicMaterial({ color: top }),
     new THREE.MeshBasicMaterial({ color: bot }),
-    new THREE.MeshBasicMaterial({ color: base }),
+    front,
     new THREE.MeshBasicMaterial({ color: base.clone().multiplyScalar(0.85) }),
   ];
   return new THREE.Mesh(new THREE.BoxGeometry(w, h, d), faceMats);
 }
 
-function buildRig(color) {
+function buildRig(color, faceTexture) {
   const joints = {};
   const hips = new THREE.Group(); hips.position.set(0, 2.6, 0); scene.add(hips); joints.Hips = hips;
   const hipsBox = cube(0.9, 0.45, 0.6, color); hips.add(hipsBox);
@@ -59,7 +65,7 @@ function buildRig(color) {
   const spineBox = cube(0.8, 0.95, 0.55, color); spineBox.position.y = 0.48; spine.add(spineBox);
 
   const head = new THREE.Group(); head.position.set(0, 1.1, 0); spine.add(head); joints.Head = head;
-  const headBox = cube(0.6, 0.6, 0.6, color); headBox.position.y = 0.3; head.add(headBox);
+  const headBox = cube(0.7, 0.7, 0.7, color, faceTexture); headBox.position.y = 0.35; head.add(headBox);
 
   const mkLimb = (parent, x, y, len, w) => {
     const upper = new THREE.Group(); upper.position.set(x, y, 0); parent.add(upper);
@@ -118,8 +124,8 @@ function applyPose(joints, pose) {
 let state = { joints: null, clip: null, duration: 0 };
 
 window.__boot = async ({ animation, backgroundUrl, color }) => {
-  await loadBackground(backgroundUrl);
-  state.joints = buildRig(color || "#5eead4");
+  const faceTex = await loadBackground(backgroundUrl).catch(() => null);
+  state.joints = buildRig(color || "#5eead4", faceTex);
   state.clip = animation;
   state.duration = animation.keyframes[animation.keyframes.length - 1].time;
   window.__duration = state.duration;

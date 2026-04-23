@@ -1,6 +1,6 @@
 {
   "name": "flawed_roster",
-  "version": "0.1.28",
+  "version": "0.1.30",
   "private": true,
   "type": "module",
   "description": "AI-generated vertical video engine. Pollinations FLUX + TTS + ffmpeg. Runs in GitHub Actions.",

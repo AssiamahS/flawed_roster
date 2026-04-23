@@ -24,7 +24,7 @@ out_path = sys.argv[2]
 name = Path(out_path).stem.replace(".animation", "")
 
 tmp = Path(tempfile.mkdtemp(prefix="rip_"))
-if src.startswith("http"):
+if src.startswith("http") or src.startswith("ytsearch"):
     mp4 = tmp / "input.mp4"
     subprocess.run(
         ["yt-dlp", "-f", "mp4/best", "--merge-output-format", "mp4",
@@ -227,6 +227,46 @@ cap.release()
 if not keyframes:
     print("no usable pose data — video may have no visible person", file=sys.stderr)
     sys.exit(3)
+
+def qnormalize(q):
+    n = math.sqrt(q[0]*q[0] + q[1]*q[1] + q[2]*q[2] + q[3]*q[3])
+    return (q[0]/n, q[1]/n, q[2]/n, q[3]/n) if n > 1e-9 else (0.0, 0.0, 0.0, 1.0)
+
+def qslerp(a, b, t):
+    dot = a[0]*b[0] + a[1]*b[1] + a[2]*b[2] + a[3]*b[3]
+    if dot < 0.0:
+        b = (-b[0], -b[1], -b[2], -b[3])
+        dot = -dot
+    if dot > 0.9995:
+        r = (a[0] + t*(b[0]-a[0]), a[1] + t*(b[1]-a[1]), a[2] + t*(b[2]-a[2]), a[3] + t*(b[3]-a[3]))
+        return qnormalize(r)
+    theta_0 = math.acos(max(-1.0, min(1.0, dot)))
+    sin_0 = math.sin(theta_0)
+    theta = theta_0 * t
+    s1 = math.sin(theta_0 - theta) / sin_0
+    s2 = math.sin(theta) / sin_0
+    return (s1*a[0] + s2*b[0], s1*a[1] + s2*b[1], s1*a[2] + s2*b[2], s1*a[3] + s2*b[3])
+
+WIN = 2
+for joint in list(keyframes[0]["pose"].keys()):
+    qs = [tuple(kf["pose"][joint]["quaternion"]) for kf in keyframes]
+    ps = [tuple(kf["pose"][joint]["position"]) for kf in keyframes]
+    n = len(keyframes)
+    for i in range(n):
+        lo = max(0, i - WIN); hi = min(n, i + WIN + 1)
+        avg_q = qs[lo]
+        for k in range(lo + 1, hi):
+            avg_q = qslerp(avg_q, qs[k], 1.0 / (k - lo + 1))
+        px = sum(ps[k][0] for k in range(lo, hi)) / (hi - lo)
+        py = sum(ps[k][1] for k in range(lo, hi)) / (hi - lo)
+        pz = sum(ps[k][2] for k in range(lo, hi)) / (hi - lo)
+        keyframes[i]["pose"][joint]["quaternion"] = [avg_q[0], avg_q[1], avg_q[2], avg_q[3]]
+        if joint == "Hips_0":
+            keyframes[i]["pose"][joint]["position"] = [px, py, pz]
+
+MAX_DURATION = 20.0
+if keyframes[-1]["time"] > MAX_DURATION:
+    keyframes = [kf for kf in keyframes if kf["time"] <= MAX_DURATION]
 
 animation = {
     "format": "fast-poser-asset",
