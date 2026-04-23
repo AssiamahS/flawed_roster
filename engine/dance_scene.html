@@ -27,31 +27,27 @@ const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
 camera.position.set(0, 3.2, 11);
 camera.lookAt(0, 2.4, 0);
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-const key = new THREE.DirectionalLight(0xffffff, 1.4);
-key.position.set(4, 8, 6);
-scene.add(key);
-const rim = new THREE.DirectionalLight(0xff7ae0, 0.55);
-rim.position.set(-5, 3, -4);
-scene.add(rim);
-
 async function loadBackground(url) {
   if (!url) return;
   const tex = await new THREE.TextureLoader().loadAsync(url);
   tex.colorSpace = THREE.SRGBColorSpace;
-  const bgGeom = new THREE.PlaneGeometry(18, 32);
-  const bgMat = new THREE.MeshBasicMaterial({ map: tex });
-  const bg = new THREE.Mesh(bgGeom, bgMat);
-  bg.position.set(0, 3.2, -5);
-  scene.add(bg);
+  scene.background = tex;
 }
 
 function cube(w, h, d, color) {
-  const m = new THREE.Mesh(
-    new THREE.BoxGeometry(w, h, d),
-    new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.12 }),
-  );
-  return m;
+  const base = new THREE.Color(color);
+  const top = base.clone().multiplyScalar(1.25);
+  const side = base.clone().multiplyScalar(0.9);
+  const bot = base.clone().multiplyScalar(0.55);
+  const faceMats = [
+    new THREE.MeshBasicMaterial({ color: side }),
+    new THREE.MeshBasicMaterial({ color: side.clone().multiplyScalar(0.85) }),
+    new THREE.MeshBasicMaterial({ color: top }),
+    new THREE.MeshBasicMaterial({ color: bot }),
+    new THREE.MeshBasicMaterial({ color: base }),
+    new THREE.MeshBasicMaterial({ color: base.clone().multiplyScalar(0.85) }),
+  ];
+  return new THREE.Mesh(new THREE.BoxGeometry(w, h, d), faceMats);
 }
 
 function buildRig(color) {
@@ -114,7 +110,7 @@ function applyPose(joints, pose) {
     const name = rawName.replace(/_\d+$/, "");
     const j = joints[name];
     if (!j) continue;
-    j.position.fromArray(transform.position);
+    if (name === "Hips") j.position.fromArray(transform.position);
     j.quaternion.fromArray(transform.quaternion);
   }
 }
