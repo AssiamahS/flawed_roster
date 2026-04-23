@@ -1,0 +1,109 @@
+{
+  "format": "fast-poser-asset",
+  "version": 1,
+  "type": "animation",
+  "name": "Arcane Summoning",
+  "savedAt": "2026-04-18T10:00:00.000Z",
+  "scene": {
+    "characterCount": 1,
+    "characterColors": [
+      "#79f0ff"
+    ]
+  },
+  "playbackSpeed": 1,
+  "effects": {
+    "preset": "arcane-summon",
+    "targetCharacter": 0,
+    "startTime": 0.4,
+    "peakTime": 2.8,
+    "endTime": 4.2,
+    "radius": 3.4,
+    "columnHeight": 6.6,
+    "primaryColor": "#63f3ff",
+    "secondaryColor": "#5b36ff",
+    "accentColor": "#ffd36b",
+    "glowColor": "#f0f9ff"
+  },
+  "keyframes": [
+    {
+      "time": 0,
+      "pose": {
+        "Hips_0": { "position": [0, 2.6, 0], "quaternion": [0, 0, 0, 1] },
+        "Spine_0": { "position": [0, 0.2, 0], "quaternion": [0.034899, 0, 0, 0.999391] },
+        "Head_0": { "position": [0, 1.2, 0], "quaternion": [-0.017452, 0, 0, 0.999848] },
+        "Left_Upper_Arm_0": { "position": [0.6, 1.1, 0], "quaternion": [-0.068898, 0.010912, 0.156053, 0.985282] },
+        "Left_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.104528, 0, 0, 0.994522] },
+        "Right_Upper_Arm_0": { "position": [-0.6, 1.1, 0], "quaternion": [-0.068898, -0.010912, -0.156053, 0.985282] },
+        "Right_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.104528, 0, 0, 0.994522] },
+        "Left_Upper_Leg_0": { "position": [0.25, -0.2, 0], "quaternion": [-0.034899, 0, 0, 0.999391] },
+        "Left_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] },
+        "Right_Upper_Leg_0": { "position": [-0.25, -0.2, 0], "quaternion": [0.034899, 0, 0, 0.999391] },
+        "Right_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] }
+      }
+    },
+    {
+      "time": 0.8,
+      "pose": {
+        "Hips_0": { "position": [0, 2.5, 0], "quaternion": [0, 0.069756, 0, 0.997564] },
+        "Spine_0": { "position": [0, 0.2, 0], "quaternion": [0.104528, 0, 0, 0.994522] },
+        "Head_0": { "position": [0, 1.2, 0], "quaternion": [0.087156, 0, 0, 0.996195] },
+        "Left_Upper_Arm_0": { "position": [0.6, 1.1, 0], "quaternion": [-0.171498, 0.083645, 0.430317, 0.882281] },
+        "Left_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.309017, 0, 0, 0.951057] },
+        "Right_Upper_Arm_0": { "position": [-0.6, 1.1, 0], "quaternion": [-0.171498, -0.083645, -0.430317, 0.882281] },
+        "Right_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.309017, 0, 0, 0.951057] },
+        "Left_Upper_Leg_0": { "position": [0.25, -0.2, 0], "quaternion": [-0.121869, 0, 0, 0.992546] },
+        "Left_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.207912, 0, 0, 0.978148] },
+        "Right_Upper_Leg_0": { "position": [-0.25, -0.2, 0], "quaternion": [-0.121869, 0, 0, 0.992546] },
+        "Right_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.207912, 0, 0, 0.978148] }
+      }
+    },
+    {
+      "time": 1.7,
+      "pose": {
+        "Hips_0": { "position": [0, 2.46, 0], "quaternion": [0, 0.052336, 0, 0.99863] },
+        "Spine_0": { "position": [0, 0.2, 0], "quaternion": [0.069756, 0, 0, 0.997564] },
+        "Head_0": { "position": [0, 1.2, 0], "quaternion": [0.017452, 0, 0, 0.999848] },
+        "Left_Upper_Arm_0": { "position": [0.6, 1.1, 0], "quaternion": [-0.245764, 0.282719, 0.699755, 0.608287] },
+        "Left_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.515038, 0, 0, 0.857167] },
+        "Right_Upper_Arm_0": { "position": [-0.6, 1.1, 0], "quaternion": [-0.245764, -0.282719, -0.699755, 0.608287] },
+        "Right_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.515038, 0, 0, 0.857167] },
+        "Left_Upper_Leg_0": { "position": [0.25, -0.2, 0], "quaternion": [-0.087156, 0, 0, 0.996195] },
+        "Left_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.156434, 0, 0, 0.987688] },
+        "Right_Upper_Leg_0": { "position": [-0.25, -0.2, 0], "quaternion": [-0.087156, 0, 0, 0.996195] },
+        "Right_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.156434, 0, 0, 0.987688] }
+      }
+    },
+    {
+      "time": 2.8,
+      "pose": {
+        "Hips_0": { "position": [0, 2.62, 0], "quaternion": [0, -0.087156, 0, 0.996195] },
+        "Spine_0": { "position": [0, 0.2, 0], "quaternion": [-0.139173, 0, 0, 0.990268] },
+        "Head_0": { "position": [0, 1.2, 0], "quaternion": [-0.190809, 0, 0, 0.981627] },
+        "Left_Upper_Arm_0": { "position": [0.6, 1.1, 0], "quaternion": [-0.275948, 0.518984, 0.71432, 0.37981] },
+        "Left_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [0.139173, 0, 0, 0.990268] },
+        "Right_Upper_Arm_0": { "position": [-0.6, 1.1, 0], "quaternion": [-0.275948, -0.518984, -0.71432, 0.37981] },
+        "Right_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [0.139173, 0, 0, 0.990268] },
+        "Left_Upper_Leg_0": { "position": [0.25, -0.2, 0], "quaternion": [0, 0, 0, 1] },
+        "Left_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] },
+        "Right_Upper_Leg_0": { "position": [-0.25, -0.2, 0], "quaternion": [0, 0, 0, 1] },
+        "Right_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] }
+      }
+    },
+    {
+      "time": 4.2,
+      "pose": {
+        "Hips_0": { "position": [0, 2.6, 0], "quaternion": [0, 0, 0, 1] },
+        "Spine_0": { "position": [0, 0.2, 0], "quaternion": [0.052336, 0, 0, 0.99863] },
+        "Head_0": { "position": [0, 1.2, 0], "quaternion": [0, 0, 0, 1] },
+        "Left_Upper_Arm_0": { "position": [0.6, 1.1, 0], "quaternion": [-0.103242, 0.016352, 0.155578, 0.982278] },
+        "Left_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.104528, 0, 0, 0.994522] },
+        "Right_Upper_Arm_0": { "position": [-0.6, 1.1, 0], "quaternion": [-0.103242, -0.016352, -0.155578, 0.982278] },
+        "Right_Lower_Arm_0": { "position": [0, -0.9, 0], "quaternion": [-0.104528, 0, 0, 0.994522] },
+        "Left_Upper_Leg_0": { "position": [0.25, -0.2, 0], "quaternion": [-0.034899, 0, 0, 0.999391] },
+        "Left_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] },
+        "Right_Upper_Leg_0": { "position": [-0.25, -0.2, 0], "quaternion": [0.034899, 0, 0, 0.999391] },
+        "Right_Lower_Leg_0": { "position": [0, -1.1, 0], "quaternion": [0.069756, 0, 0, 0.997564] }
+      }
+    }
+  ]
+}

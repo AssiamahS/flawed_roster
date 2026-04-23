@@ -1,0 +1,77 @@
+name: Rip TikTok Motion
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "TikTok or YouTube video URL with a clearly visible dancer"
+        required: true
+        type: string
+      name:
+        description: "Motion name (slug for the json file)"
+        required: true
+        default: "rip"
+        type: string
+      auto_generate:
+        description: "After ripping, also kick a dancing_brainrot clip using this motion"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  rip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install mediapipe + yt-dlp + opencv
+        run: pip install --quiet mediapipe yt-dlp opencv-python-headless
+
+      - name: Rip motion
+        env:
+          URL: ${{ github.event.inputs.url }}
+          NAME: ${{ github.event.inputs.name }}
+        run: |
+          SAFE=$(echo "$NAME" | tr -c '[:alnum:]-_' '_' | cut -c1-40)
+          SLUG="rip-${SAFE}-$(date +%s)"
+          OUT="Animations/${SLUG}.animation.json"
+          python engine/rip_tiktok.py "$URL" "$OUT"
+          echo "SLUG=$SLUG" >> "$GITHUB_ENV"
+          echo "OUT=$OUT"   >> "$GITHUB_ENV"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: motion-${{ env.SLUG }}
+          path: |
+            Animations/${{ env.SLUG }}.animation.json
+            Animations/${{ env.SLUG }}.mp3
+          retention-days: 30
+
+      - name: Commit new motion
+        run: |
+          git config user.name "flawed_roster-bot"
+          git config user.email "bot@flawed-roster.local"
+          git add "${OUT}"
+          git diff --cached --quiet || git commit -m "rip: ${SLUG} from ${{ github.event.inputs.url }}"
+          git push || true
+
+      - name: Chain dance generation
+        if: ${{ github.event.inputs.auto_generate == 'true' }}
+        run: |
+          gh workflow run generate.yml \
+            --ref "${{ github.ref_name }}" \
+            -f niche=dancing_brainrot \
+            -f prompt="capuchin monkey fused with a vespa doing the ${NAME} dance"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

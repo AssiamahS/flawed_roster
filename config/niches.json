@@ -67,6 +67,25 @@
         "#fyp"
       ],
       "system_prompt_file": "config/prompts/pets.txt"
+    },
+    "dancing_brainrot": {
+      "description": "Italian brainrot characters dancing — cube rig driven by Animateur motion clips, Pollinations portrait background",
+      "composer": "dance",
+      "voice_model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low/it_IT-riccardo-x_low.onnx",
+      "voice_model_config_url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/it/it_IT/riccardo/x_low/it_IT-riccardo-x_low.onnx.json",
+      "voice_model_file": "voices/it_IT-riccardo-x_low.onnx",
+      "whisper_language": "it",
+      "default_seed": "capuchin monkey fused with a vespa doing a spinning kick",
+      "hashtags": [
+        "#italianbrainrot",
+        "#dance",
+        "#dancing",
+        "#aidance",
+        "#brainrot",
+        "#fyp",
+        "#viral"
+      ],
+      "system_prompt_file": "config/prompts/dancing_brainrot.txt"
     }
   }
 }

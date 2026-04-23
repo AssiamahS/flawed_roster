@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       niche:
-        description: "Niche profile (brainrot | beauty | supplements | pets)"
+        description: "Niche profile"
         required: true
         default: "brainrot"
         type: choice
@@ -13,6 +13,7 @@ on:
           - beauty
           - supplements
           - pets
+          - dancing_brainrot
       prompt:
         description: "Seed (leave blank for niche default)"
         required: false
@@ -45,6 +46,10 @@ jobs:
 
       - name: Install piper-tts + whisper
         run: pip install --quiet piper-tts openai-whisper
+
+      - name: Install node deps (dance niche only)
+        if: env.NICHE == 'dancing_brainrot'
+        run: npm install --omit=optional --no-audit --no-fund
 
       - name: Download niche voice model
         run: |
