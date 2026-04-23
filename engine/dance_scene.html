@@ -23,9 +23,9 @@ renderer.setSize(W, H);
 renderer.setPixelRatio(1);
 document.body.appendChild(renderer.domElement);
 
-const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
-camera.position.set(0, 3.2, 11);
-camera.lookAt(0, 2.4, 0);
+const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
+camera.position.set(0, 2.6, 16);
+camera.lookAt(0, 2.0, 0);
 
 async function loadBackground(url) {
   if (!url) return;
