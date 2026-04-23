@@ -36,7 +36,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Install mediapipe + yt-dlp + opencv
-        run: pip install --quiet mediapipe yt-dlp opencv-python-headless
+        run: pip install --quiet "mediapipe==0.10.14" yt-dlp "opencv-python-headless<5" numpy
+
 
       - name: Rip motion
         env:
