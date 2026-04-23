@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "dance-1776923725116",
+      "seed": "capuchin monkey fused with a vespa doing a spinning kick",
+      "name": "Vespucci Pappagallo",
+      "lyrics": "Ecco Vespucci Pappagallo! La scimmia folgore ruota la sua Vespa in un vortice di stile, spezzando il vento con un calcio spinato che fa sussurrare il silenzio di Milano.",
+      "image_prompt": "Cinematic wide 9:16 shot of a neon-lit Milanian rooftop at night, empty polished chrome dance floor at the center, towering glass panels reflecting the city lights, a flock of sparrows fluttering above, two sleek scooters parked beside a half-open window, distant skyline blurred, golden hour sunset over the rooftops, shallow depth of field, film grain, rich color palette, no people, no characters.",
+      "image": "out/image-1776923520571.png",
+      "voice": "out/voice-1776923520634.wav",
+      "captions": "out/voice-1776923520634.srt",
+      "clip": "out/dance-1776923725116.mp4",
+      "created_at": "2026-04-23T05:55:34.955Z"
+    },
+    {
       "id": "dance-1776923015443",
       "seed": "capuchin monkey fused with a vespa doing a spinning kick",
       "name": "Vespucci Pappagallo",
@@ -247,5 +259,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-23T05:43:41.792Z"
+  "updated_at": "2026-04-23T05:55:34.955Z"
 }
