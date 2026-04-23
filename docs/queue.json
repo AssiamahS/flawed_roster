@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "dance-1776932898328",
+      "seed": "capuchin monkey fused with a vespa doing the renegade dance",
+      "name": "Capuccino Vespertino",
+      "lyrics": "Ecco Capuccino Vespertino! Il ragno marzipanico Salta i parabrezza, corse di tempo, spin straordinario, il suo salto austriaco esplode in scintille di neon. Sincrono con il ritmo di pistole di marcia, balla fino all'alba del circuito!",
+      "image_prompt": "Cinematic wide 9:16 shot of a neon-lit Milan rooftop at night, empty concrete stage with slick reflective tiles, luminous graffiti of circuit boards and streetcar silhouettes, copper scooters leaning against glass, a dangling vintage lantern casts warm amber light, shallow depth of field, film grain, rich color palette, no people, no characters.",
+      "image": "out/image-1776932426425.png",
+      "voice": "out/voice-1776932426458.wav",
+      "captions": "out/voice-1776932426458.srt",
+      "clip": "out/dance-1776932898328.mp4",
+      "created_at": "2026-04-23T08:28:31.459Z"
+    },
+    {
       "id": "dance-1776931344744",
       "seed": "capuchin monkey fused with a vespa doing the  dance",
       "name": "Capucci Vespolino",
@@ -283,5 +295,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-23T08:02:33.104Z"
+  "updated_at": "2026-04-23T08:28:31.459Z"
 }
