@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777370942354",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinotrucetto",
+      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
+      "image": "out/image-1777370925908.png",
+      "voice": "out/voice-1777370925939.wav",
+      "captions": "out/voice-1777370925939.srt",
+      "clip": "out/clip-1777370942354.mp4",
+      "created_at": "2026-04-28T10:09:13.639Z"
+    },
+    {
       "id": "clip-1777342172294",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinotrucetto",
@@ -499,5 +511,5 @@
       "created_at": "2026-04-18T21:54:07.991Z"
     }
   ],
-  "updated_at": "2026-04-28T02:09:42.007Z"
+  "updated_at": "2026-04-28T10:09:13.639Z"
 }
