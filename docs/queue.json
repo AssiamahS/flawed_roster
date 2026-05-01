@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777627696911",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinotrucetto",
+      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
+      "image": "out/image-1777627681123.png",
+      "voice": "out/voice-1777627681156.wav",
+      "captions": "out/voice-1777627681156.srt",
+      "clip": "out/clip-1777627696911.mp4",
+      "created_at": "2026-05-01T09:28:25.894Z"
+    },
+    {
       "id": "clip-1777601673530",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinotrucetto",
@@ -586,18 +598,7 @@
       "voice": "out/voice-1776550547835.wav",
       "clip": "out/clip-1776550550081.mp4",
       "created_at": "2026-04-18T22:15:58.278Z"
-    },
-    {
-      "id": "clip-1776550204120",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Piccettro Truccino",
-      "lyrics": "Piccettro Truccino, piccettro truccino! Picci picci in trance, brr brr, tralala, tung tung, sbada bim, la la la! Vento sfreccia, zuce lucente, e la nube risponde, brillante e riderelli, rossa fosca di neon, sempre leggero come un tesserezu!",
-      "image_prompt": "A hyper-detailed photorealistic 9:16 portrait of a pigeon seamlessly fused with a Cybertruck, where the bird's feathered head and sharp beak grow into the vehicle's chrome grille and LED headlights, its wings tucked across the hood as if in flight, set on a misty downtown street under a warm golden-hour glow, dramatic rim lighting, shallow depth of field, subtle film grain, surreal yet charming, centered subject.",
-      "image": "out/image-1776550201779.png",
-      "voice": "out/voice-1776550201863.wav",
-      "clip": "out/clip-1776550204120.mp4",
-      "created_at": "2026-04-18T22:10:12.673Z"
     }
   ],
-  "updated_at": "2026-05-01T02:14:43.753Z"
+  "updated_at": "2026-05-01T09:28:25.894Z"
 }
