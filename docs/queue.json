@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777687304507",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinotrucetto",
+      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
+      "image": "out/image-1777687286882.png",
+      "voice": "out/voice-1777687286961.wav",
+      "captions": "out/voice-1777687286961.srt",
+      "clip": "out/clip-1777687304507.mp4",
+      "created_at": "2026-05-02T02:01:54.123Z"
+    },
+    {
       "id": "clip-1777654138423",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinotrucetto",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776563776057.srt",
       "clip": "out/clip-1776563790736.mp4",
       "created_at": "2026-04-19T01:56:42.043Z"
-    },
-    {
-      "id": "clip-1776551387682",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Pinguinifarellino",
-      "lyrics": "Ecco Pinguinifarellino! Questa androgina bevoniata di corvi fa deserto di semafori con la cantilena di metallo, allegra e docemente pronta a forzare gli ingranaggi del traffico. Attenzione, viaggiatore intenso: la sua porta di accesso al carburante è più grande della tua corrente!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-Cybertruck fusion, wearing sleek neon yellow sunglasses, expressive big eyes, tiny metallic boots, standing on a sunny highway archway, warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
-      "image": "out/image-1776551372226.png",
-      "voice": "out/voice-1776551372284.wav",
-      "captions": "out/voice-1776551372284.srt",
-      "clip": "out/clip-1776551387682.mp4",
-      "created_at": "2026-04-18T22:29:57.509Z"
     }
   ],
-  "updated_at": "2026-05-01T16:49:07.654Z"
+  "updated_at": "2026-05-02T02:01:54.123Z"
 }
