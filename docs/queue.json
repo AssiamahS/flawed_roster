@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777773963400",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguinotrucetto",
+      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
+      "image": "out/image-1777773944225.png",
+      "voice": "out/voice-1777773944300.wav",
+      "captions": "out/voice-1777773944300.srt",
+      "clip": "out/clip-1777773963400.mp4",
+      "created_at": "2026-05-03T02:06:13.183Z"
+    },
+    {
       "id": "clip-1777739982970",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinotrucetto",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776586826722.srt",
       "clip": "out/clip-1776586843732.mp4",
       "created_at": "2026-04-19T08:20:52.872Z"
-    },
-    {
-      "id": "clip-1776586682198",
-      "seed": "spaghetti fused with a flamingo",
-      "name": "Spaghettiflammolino",
-      "lyrics": "Ecco Spaghettiflammolino! Questo elegante migratore artistico intreccia fili di spaghetti nelle sue piume incandescenti, creando un girarazzo di colore e magia. Con ogni battito d’ali, le spezzali danzano e assaporano la ricetta di un’armonia culinaria. Curioso spettatore, non toccare le sue passate di pasta, altrimenti rischi una salsa di perfezione!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic flamingo with spaghetti strands woven into its feathers, expressive big eyes, a tiny metal horned hat, tiny pastel pink sandals, standing on a sunlit kitchen island, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
-      "image": "out/image-1776586665181.png",
-      "voice": "out/voice-1776586665238.wav",
-      "captions": "out/voice-1776586665238.srt",
-      "clip": "out/clip-1776586682198.mp4",
-      "created_at": "2026-04-19T08:18:16.836Z"
     }
   ],
-  "updated_at": "2026-05-02T16:39:52.991Z"
+  "updated_at": "2026-05-03T02:06:13.183Z"
 }
