@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777799823083",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1777799807740.png",
+      "voice": "out/voice-1777799807792.wav",
+      "captions": "out/voice-1777799807792.srt",
+      "clip": "out/clip-1777799823083.mp4",
+      "created_at": "2026-05-03T09:17:12.481Z"
+    },
+    {
       "id": "clip-1777773963400",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguinotrucetto",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776588294745.srt",
       "clip": "out/clip-1776588310706.mp4",
       "created_at": "2026-04-19T08:45:22.201Z"
-    },
-    {
-      "id": "clip-1776586843732",
-      "seed": "lasagna fused with an elephant",
-      "name": "Lasagnino Elefantino",
-      "lyrics": "Ecco Lasagnino Elefantino! Questa maestosa creatura di pasta rotonda con la proboscide di un elefante stampa melodie di sapore, portando fette di parmigiano nella sua tromba musicale. Attenzione: se riscaldi troppo, la ronda può sbocciare come una napolitana!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic lasagna fused with an elephant, showing the lasagna layers forming its massive body with an elephant trunk protruding from the center, wearing a tiny gold chain around its eye, expressive big eyes, tiny clown shoes, standing on a wooden kitchen counter, warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary, 9:16 portrait, centered subject.",
-      "image": "out/image-1776586826636.png",
-      "voice": "out/voice-1776586826722.wav",
-      "captions": "out/voice-1776586826722.srt",
-      "clip": "out/clip-1776586843732.mp4",
-      "created_at": "2026-04-19T08:20:52.872Z"
     }
   ],
-  "updated_at": "2026-05-03T02:06:13.183Z"
+  "updated_at": "2026-05-03T09:17:12.481Z"
 }
