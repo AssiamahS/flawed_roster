@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1777946737712",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1777946722069.png",
+      "voice": "out/voice-1777946722120.wav",
+      "captions": "out/voice-1777946722120.srt",
+      "clip": "out/clip-1777946737712.mp4",
+      "created_at": "2026-05-05T02:05:46.570Z"
+    },
+    {
       "id": "clip-1777915536166",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776736379378.srt",
       "clip": "out/clip-1776736400433.mp4",
       "created_at": "2026-04-21T01:53:29.888Z"
-    },
-    {
-      "id": "clip-1776704331623",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Pinguinotrucetto",
-      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
-      "image": "out/image-1776704313793.png",
-      "voice": "out/voice-1776704313827.wav",
-      "captions": "out/voice-1776704313827.srt",
-      "clip": "out/clip-1776704331623.mp4",
-      "created_at": "2026-04-20T16:59:01.211Z"
     }
   ],
-  "updated_at": "2026-05-04T17:25:46.688Z"
+  "updated_at": "2026-05-05T02:05:46.570Z"
 }
