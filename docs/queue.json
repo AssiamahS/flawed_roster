@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1778259992713",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1778259976285.png",
+      "voice": "out/voice-1778259976320.wav",
+      "captions": "out/voice-1778259976320.srt",
+      "clip": "out/clip-1778259992713.mp4",
+      "created_at": "2026-05-08T17:06:42.261Z"
+    },
+    {
       "id": "clip-1778231362585",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776932426458.srt",
       "clip": "out/dance-1776932898328.mp4",
       "created_at": "2026-04-23T08:28:31.459Z"
-    },
-    {
-      "id": "dance-1776931344744",
-      "seed": "capuchin monkey fused with a vespa doing the  dance",
-      "name": "Capucci Vespolino",
-      "lyrics": "Ecco Capucci Vespolino! Arriviamo con una zampa agile e un motore basilare, pronto a scivolare come un Vespone nella brezza di cinema. Schiappa, scatto, svolta!",
-      "image_prompt": "Cinematic wide 9:16 shot of a neon‑lit Milan rooftop at night, empty concrete dance floor with reflective black tiles, stainless steel street lamps, a vintage Vespa parked to one side, a small rooftop garden with potted herbs, sky streaked with city lights, shallow depth of field, film grain, no people, no characters, rich cool palette.",
-      "image": "out/image-1776931116361.png",
-      "voice": "out/voice-1776931116440.wav",
-      "captions": "out/voice-1776931116440.srt",
-      "clip": "out/dance-1776931344744.mp4",
-      "created_at": "2026-04-23T08:02:33.104Z"
     }
   ],
-  "updated_at": "2026-05-08T09:09:31.672Z"
+  "updated_at": "2026-05-08T17:06:42.261Z"
 }
