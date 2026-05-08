@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1778206474940",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1778206456293.png",
+      "voice": "out/voice-1778206456327.wav",
+      "captions": "out/voice-1778206456327.srt",
+      "clip": "out/clip-1778206474940.mp4",
+      "created_at": "2026-05-08T02:14:44.359Z"
+    },
+    {
       "id": "clip-1778175904620",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776927036677.srt",
       "clip": "out/dance-1776927217720.mp4",
       "created_at": "2026-04-23T06:53:45.406Z"
-    },
-    {
-      "id": "dance-1776923725116",
-      "seed": "capuchin monkey fused with a vespa doing a spinning kick",
-      "name": "Vespucci Pappagallo",
-      "lyrics": "Ecco Vespucci Pappagallo! La scimmia folgore ruota la sua Vespa in un vortice di stile, spezzando il vento con un calcio spinato che fa sussurrare il silenzio di Milano.",
-      "image_prompt": "Cinematic wide 9:16 shot of a neon-lit Milanian rooftop at night, empty polished chrome dance floor at the center, towering glass panels reflecting the city lights, a flock of sparrows fluttering above, two sleek scooters parked beside a half-open window, distant skyline blurred, golden hour sunset over the rooftops, shallow depth of field, film grain, rich color palette, no people, no characters.",
-      "image": "out/image-1776923520571.png",
-      "voice": "out/voice-1776923520634.wav",
-      "captions": "out/voice-1776923520634.srt",
-      "clip": "out/dance-1776923725116.mp4",
-      "created_at": "2026-04-23T05:55:34.955Z"
     }
   ],
-  "updated_at": "2026-05-07T17:45:13.961Z"
+  "updated_at": "2026-05-08T02:14:44.359Z"
 }
