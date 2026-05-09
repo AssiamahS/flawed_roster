@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1778317915473",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1778317896059.png",
+      "voice": "out/voice-1778317896127.wav",
+      "captions": "out/voice-1778317896127.srt",
+      "clip": "out/clip-1778317915473.mp4",
+      "created_at": "2026-05-09T09:12:04.872Z"
+    },
+    {
       "id": "clip-1778292507907",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776933755925.srt",
       "clip": "[TikTok] Extracting URL: https://www.tiktok.com/@igreenscreenthings/video/7501863875843755294\n[TikTok] 7501863875843755294: Downloading webpage\n[info] 7501863875843755294: Downloading 1 format(s): bytevc1_1080p_1413841-1\n[download] Destination: /tmp/gs-1776933772837/gs.mp4\n\r[download]   0.1% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.3% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.6% of    1.12MiB at    5.72MiB/s ETA 00:00  \r[download]   1.3% of    1.12MiB at    9.51MiB/s ETA 00:00\r[download]   2.7% of    1.12MiB at   15.65MiB/s ETA 00:00\r[download]   5.5% of    1.12MiB at   10.08MiB/s ETA 00:00\r[download]  11.1% of    1.12MiB at   10.84MiB/s ETA 00:00\r[download]  22.3% of    1.12MiB at   13.64MiB/s ETA 00:00\r[download]  44.6% of    1.12MiB at   18.93MiB/s ETA 00:00\r[download]  89.3% of    1.12MiB at   25.91MiB/s ETA 00:00\r[download] 100.0% of    1.12MiB at   26.21MiB/s ETA 00:00\r[download] 100% of    1.12MiB in 00:00:00 at 12.29MiB/s  \nout/dance-1776933774829.mp4",
       "created_at": "2026-04-23T08:43:32.242Z"
-    },
-    {
-      "id": "dance-1776933398540",
-      "seed": "spaghetti noodle fused with a disco ball dancing the salsa",
-      "name": "Salsa Stranacciolino",
-      "lyrics": "Ecco Salsa Stranacciolino! Questo provolone filigranato scivola sul beat, mentre la spirale di glitter gira come salsa in salsa, raddoppiando l’energia. Al drop, il corpo brilla e il pubblico urla, e la pista esplode!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic spaghetti noodle disco ball dancer, head and shoulders portrait filling the top third of the frame, big expressive friendly eyes centered in the upper third, silver glittering sunglasses, standing in a neon‑lit Neapolitan arcade with vintage arcade machines and colorful game cabinets behind, warm cinematic rim light, shallow depth of field, soft bokeh, film grain, charming and cute not scary, 9:16 portrait.",
-      "image": "out/image-1776933370126.png",
-      "voice": "out/voice-1776933370157.wav",
-      "captions": "out/voice-1776933370157.srt",
-      "clip": "[TikTok] Extracting URL: https://www.tiktok.com/@igreenscreenthings/video/7501863875843755294\n[TikTok] 7501863875843755294: Downloading webpage\n[info] 7501863875843755294: Downloading 1 format(s): bytevc1_1080p_1413841-1\n[download] Destination: /tmp/gs-1776933397088/gs.mp4\n\r[download]   0.1% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.3% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.6% of    1.12MiB at  Unknown B/s ETA 00:00  \r[download]   1.3% of    1.12MiB at   11.63MiB/s ETA 00:00\r[download]   2.7% of    1.12MiB at   19.26MiB/s ETA 00:00\r[download]   5.5% of    1.12MiB at    8.53MiB/s ETA 00:00\r[download]  11.1% of    1.12MiB at    8.76MiB/s ETA 00:00\r[download]  22.3% of    1.12MiB at   10.76MiB/s ETA 00:00\r[download]  44.6% of    1.12MiB at   15.18MiB/s ETA 00:00\r[download]  89.3% of    1.12MiB at   21.49MiB/s ETA 00:00\r[download] 100.0% of    1.12MiB at   22.54MiB/s ETA 00:00\r[download] 100% of    1.12MiB in 00:00:00 at 9.92MiB/s   \nout/dance-1776933398540.mp4",
-      "created_at": "2026-04-23T08:37:02.883Z"
     }
   ],
-  "updated_at": "2026-05-09T02:08:37.232Z"
+  "updated_at": "2026-05-09T09:12:04.872Z"
 }
