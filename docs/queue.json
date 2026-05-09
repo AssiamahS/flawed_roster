@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1778292507907",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "GufoWheelino",
+      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1778292488917.png",
+      "voice": "out/voice-1778292488953.wav",
+      "captions": "out/voice-1778292488953.srt",
+      "clip": "out/clip-1778292507907.mp4",
+      "created_at": "2026-05-09T02:08:37.232Z"
+    },
+    {
       "id": "clip-1778259992713",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1776933370157.srt",
       "clip": "[TikTok] Extracting URL: https://www.tiktok.com/@igreenscreenthings/video/7501863875843755294\n[TikTok] 7501863875843755294: Downloading webpage\n[info] 7501863875843755294: Downloading 1 format(s): bytevc1_1080p_1413841-1\n[download] Destination: /tmp/gs-1776933397088/gs.mp4\n\r[download]   0.1% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.3% of    1.12MiB at  Unknown B/s ETA Unknown\r[download]   0.6% of    1.12MiB at  Unknown B/s ETA 00:00  \r[download]   1.3% of    1.12MiB at   11.63MiB/s ETA 00:00\r[download]   2.7% of    1.12MiB at   19.26MiB/s ETA 00:00\r[download]   5.5% of    1.12MiB at    8.53MiB/s ETA 00:00\r[download]  11.1% of    1.12MiB at    8.76MiB/s ETA 00:00\r[download]  22.3% of    1.12MiB at   10.76MiB/s ETA 00:00\r[download]  44.6% of    1.12MiB at   15.18MiB/s ETA 00:00\r[download]  89.3% of    1.12MiB at   21.49MiB/s ETA 00:00\r[download] 100.0% of    1.12MiB at   22.54MiB/s ETA 00:00\r[download] 100% of    1.12MiB in 00:00:00 at 9.92MiB/s   \nout/dance-1776933398540.mp4",
       "created_at": "2026-04-23T08:37:02.883Z"
-    },
-    {
-      "id": "dance-1776932898328",
-      "seed": "capuchin monkey fused with a vespa doing the renegade dance",
-      "name": "Capuccino Vespertino",
-      "lyrics": "Ecco Capuccino Vespertino! Il ragno marzipanico Salta i parabrezza, corse di tempo, spin straordinario, il suo salto austriaco esplode in scintille di neon. Sincrono con il ritmo di pistole di marcia, balla fino all'alba del circuito!",
-      "image_prompt": "Cinematic wide 9:16 shot of a neon-lit Milan rooftop at night, empty concrete stage with slick reflective tiles, luminous graffiti of circuit boards and streetcar silhouettes, copper scooters leaning against glass, a dangling vintage lantern casts warm amber light, shallow depth of field, film grain, rich color palette, no people, no characters.",
-      "image": "out/image-1776932426425.png",
-      "voice": "out/voice-1776932426458.wav",
-      "captions": "out/voice-1776932426458.srt",
-      "clip": "out/dance-1776932898328.mp4",
-      "created_at": "2026-04-23T08:28:31.459Z"
     }
   ],
-  "updated_at": "2026-05-08T17:06:42.261Z"
+  "updated_at": "2026-05-09T02:08:37.232Z"
 }
