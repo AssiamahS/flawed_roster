@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1779036641780",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pigeopunk Livellino",
+      "lyrics": "Ecco Pigeopunk Livellino! Con il becco di semi e la carrozzeria di solido acero nero, questo rivoluzionario volante onetta sfreccia tra i grattacieli, accendendo lampade LED pulsanti. Ma attenzione, passanti: se crei una curva troppo stretta, l’auto a piume potrebbe prendersi una glosso di stile!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon/cybertruck hybrid, the upper body a sleek titanium Cybertruck chassis with glossy black panels, stitched into the bird’s torso, a bright neon blue digital display glowing along the side, expressive big eyes, wearing a tiny neon green hat, tiny high‑top sneakers, standing on a glossy concrete pavement, warm cinematic golden‑hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.",
+      "image": "out/image-1779036620012.png",
+      "voice": "out/voice-1779036620045.wav",
+      "captions": "out/voice-1779036620045.srt",
+      "clip": "out/clip-1779036641780.mp4",
+      "created_at": "2026-05-17T16:50:53.065Z"
+    },
+    {
       "id": "clip-1779010208693",
       "seed": "pigeon fused with a cybertruck",
       "name": "GufoWheelino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1777601654666.srt",
       "clip": "out/clip-1777601673530.mp4",
       "created_at": "2026-05-01T02:14:43.753Z"
-    },
-    {
-      "id": "clip-1777569156578",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Pinguinotrucetto",
-      "lyrics": "Ecco Pinguinotrucetto! Sfrecciante tra le piazze, il rapace rideacqua trasporta carburante futurista, le sue ali lucidano grigio argenteo come un carro volante. Con un gatto corsa, chi lo vede resta incantato—ma ricordate: “Non cercate di parcheggiarlo al tramonto!”",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-cybertruck fusion, expressive big eyes, wearing a cool pair of sunglasses, tiny boots, standing on a glossy city street at sunset, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, 9:16 portrait, centered subject.",
-      "image": "out/image-1777569137016.png",
-      "voice": "out/voice-1777569137051.wav",
-      "captions": "out/voice-1777569137051.srt",
-      "clip": "out/clip-1777569156578.mp4",
-      "created_at": "2026-04-30T17:12:46.113Z"
     }
   ],
-  "updated_at": "2026-05-17T09:30:18.598Z"
+  "updated_at": "2026-05-17T16:50:53.065Z"
 }
