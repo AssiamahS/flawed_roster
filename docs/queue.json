@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1779361305662",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pigeopunk Livellino",
+      "lyrics": "Ecco Pigeopunk Livellino! Con il becco di semi e la carrozzeria di solido acero nero, questo rivoluzionario volante onetta sfreccia tra i grattacieli, accendendo lampade LED pulsanti. Ma attenzione, passanti: se crei una curva troppo stretta, l’auto a piume potrebbe prendersi una glosso di stile!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon/cybertruck hybrid, the upper body a sleek titanium Cybertruck chassis with glossy black panels, stitched into the bird’s torso, a bright neon blue digital display glowing along the side, expressive big eyes, wearing a tiny neon green hat, tiny high‑top sneakers, standing on a glossy concrete pavement, warm cinematic golden‑hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.",
+      "image": "out/image-1779361287428.png",
+      "voice": "out/voice-1779361287510.wav",
+      "captions": "out/voice-1779361287510.srt",
+      "clip": "out/clip-1779361305662.mp4",
+      "created_at": "2026-05-21T11:01:56.288Z"
+    },
+    {
       "id": "clip-1779331051761",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pigeopunk Livellino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1777915516675.srt",
       "clip": "out/clip-1777915536166.mp4",
       "created_at": "2026-05-04T17:25:46.688Z"
-    },
-    {
-      "id": "clip-1777889303434",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "GufoWheelino",
-      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
-      "image": "out/image-1777889283893.png",
-      "voice": "out/voice-1777889283929.wav",
-      "captions": "out/voice-1777889283929.srt",
-      "clip": "out/clip-1777889303434.mp4",
-      "created_at": "2026-05-04T10:08:32.256Z"
     }
   ],
-  "updated_at": "2026-05-21T02:37:42.672Z"
+  "updated_at": "2026-05-21T11:01:56.288Z"
 }
