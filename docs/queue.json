@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1780429114626",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Piegafucino",
+      "lyrics": "Ecco Piegafucino! Questa schiacciante creatura alata si libr\n\nEcco Piegafucino! Questa schiacciante creatura alata si libra con un corpo di Cybertruck cromato che splende come luna piena, in cui le ali di un colomba si intrecciano a motori elettrici. Con un piumone magico che ruggisce, è pronto a fornire carichi, ma non confondere le sue braccia con stelle.",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-Cybertruck fusion, expressive big eyes, wearing a cool pair of black sunglasses, tiny white sneakers, standing on a shiny steel road surface, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.",
+      "image": "out/image-1780429093006.png",
+      "voice": "out/voice-1780429093083.wav",
+      "captions": "out/voice-1780429093083.srt",
+      "clip": "out/clip-1780429114626.mp4",
+      "created_at": "2026-06-02T19:38:47.262Z"
+    },
+    {
       "id": "clip-1780401587661",
       "seed": "pigeon fused with a cybertruck",
       "name": "Piegafucino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1778984142272.srt",
       "clip": "out/clip-1778984160762.mp4",
       "created_at": "2026-05-17T02:16:10.176Z"
-    },
-    {
-      "id": "clip-1778950201316",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "GufoWheelino",
-      "lyrics": "Ecco GufoWheelino! Questo corvo futuristico gira su ruote di cybertruck, sfidando l’aria con un ruggito magnetico. Con le sue zampe spumeggianti solleva il traffico, ma attenzione: se crei un ingorgo, il suo turbo sfrenato ti farà girare per la città!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a cybertruck, wearing a sleek silver gold chain, expressive big eyes, tiny black pilgrim sandals, standing on a bustling city street under warm cinematic golden-hour light, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
-      "image": "out/image-1778950183423.png",
-      "voice": "out/voice-1778950183457.wav",
-      "captions": "out/voice-1778950183457.srt",
-      "clip": "out/clip-1778950201316.mp4",
-      "created_at": "2026-05-16T16:50:10.254Z"
     }
   ],
-  "updated_at": "2026-06-02T11:59:59.955Z"
+  "updated_at": "2026-06-02T19:38:47.262Z"
 }
