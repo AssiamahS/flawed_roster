@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1781698342309",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguino Truccanino",
+      "lyrics": "Ecco Pinguino Truccanino! Dal piumaggio di cera e il corpo di scocca, questo uccello volante guida un CyberTruck bloccato sulle strade del circo urbano. Con un ciglio di occhio e un click di pneumatici, il suo timbro è che nessuna strada è troppo 'alta'. Ma ricordate: non ascoltate gli avvertimenti del traffico, perché lui vi trasporta al futuro con un “sii la pinguina veloce”!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a Cybertruck, its sleek metal chassis visibly integrated into its feathered body, wearing a shiny silver gaming headset, expressive big eyes, tiny red sneakers, standing on a neon-lit asphalt road, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1781698314660.png",
+      "voice": "out/voice-1781698314695.wav",
+      "captions": "out/voice-1781698314695.srt",
+      "clip": "out/clip-1781698342309.mp4",
+      "created_at": "2026-06-17T12:12:35.269Z"
+    },
+    {
       "id": "clip-1781664807104",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguino Truccanino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1779104389833.srt",
       "clip": "out/clip-1779104407899.mp4",
       "created_at": "2026-05-18T11:40:18.858Z"
-    },
-    {
-      "id": "clip-1779071775192",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Pigeopunk Livellino",
-      "lyrics": "Ecco Pigeopunk Livellino! Con il becco di semi e la carrozzeria di solido acero nero, questo rivoluzionario volante onetta sfreccia tra i grattacieli, accendendo lampade LED pulsanti. Ma attenzione, passanti: se crei una curva troppo stretta, l’auto a piume potrebbe prendersi una glosso di stile!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon/cybertruck hybrid, the upper body a sleek titanium Cybertruck chassis with glossy black panels, stitched into the bird’s torso, a bright neon blue digital display glowing along the side, expressive big eyes, wearing a tiny neon green hat, tiny high‑top sneakers, standing on a glossy concrete pavement, warm cinematic golden‑hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.",
-      "image": "out/image-1779071757400.png",
-      "voice": "out/voice-1779071757433.wav",
-      "captions": "out/voice-1779071757433.srt",
-      "clip": "out/clip-1779071775192.mp4",
-      "created_at": "2026-05-18T02:36:26.487Z"
     }
   ],
-  "updated_at": "2026-06-17T02:53:40.082Z"
+  "updated_at": "2026-06-17T12:12:35.269Z"
 }
