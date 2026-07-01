@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1782928166319",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguino Truccanino",
+      "lyrics": "Ecco Pinguino Truccanino! Dal piumaggio di cera e il corpo di scocca, questo uccello volante guida un CyberTruck bloccato sulle strade del circo urbano. Con un ciglio di occhio e un click di pneumatici, il suo timbro è che nessuna strada è troppo 'alta'. Ma ricordate: non ascoltate gli avvertimenti del traffico, perché lui vi trasporta al futuro con un “sii la pinguina veloce”!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a Cybertruck, its sleek metal chassis visibly integrated into its feathered body, wearing a shiny silver gaming headset, expressive big eyes, tiny red sneakers, standing on a neon-lit asphalt road, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1782928146210.png",
+      "voice": "out/voice-1782928146273.wav",
+      "captions": "out/voice-1782928146273.srt",
+      "clip": "out/clip-1782928166319.mp4",
+      "created_at": "2026-07-01T17:49:39.816Z"
+    },
+    {
       "id": "clip-1782904763122",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguino Truccanino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1780368530646.srt",
       "clip": "out/clip-1780368554719.mp4",
       "created_at": "2026-06-02T02:49:28.034Z"
-    },
-    {
-      "id": "clip-1780344802904",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Piegafucino",
-      "lyrics": "Ecco Piegafucino! Questa schiacciante creatura alata si libr\n\nEcco Piegafucino! Questa schiacciante creatura alata si libra con un corpo di Cybertruck cromato che splende come luna piena, in cui le ali di un colomba si intrecciano a motori elettrici. Con un piumone magico che ruggisce, è pronto a fornire carichi, ma non confondere le sue braccia con stelle.",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon-Cybertruck fusion, expressive big eyes, wearing a cool pair of black sunglasses, tiny white sneakers, standing on a shiny steel road surface, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary, centered subject, 9:16 portrait.",
-      "image": "out/image-1780344783618.png",
-      "voice": "out/voice-1780344783665.wav",
-      "captions": "out/voice-1780344783665.srt",
-      "clip": "out/clip-1780344802904.mp4",
-      "created_at": "2026-06-01T20:13:35.684Z"
     }
   ],
-  "updated_at": "2026-07-01T11:19:35.819Z"
+  "updated_at": "2026-07-01T17:49:39.816Z"
 }
