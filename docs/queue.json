@@ -1,6 +1,18 @@
 {
   "clips": [
     {
+      "id": "clip-1785084737848",
+      "seed": "pigeon fused with a cybertruck",
+      "name": "Pinguino Truccanino",
+      "lyrics": "Ecco Pinguino Truccanino! Dal piumaggio di cera e il corpo di scocca, questo uccello volante guida un CyberTruck bloccato sulle strade del circo urbano. Con un ciglio di occhio e un click di pneumatici, il suo timbro è che nessuna strada è troppo 'alta'. Ma ricordate: non ascoltate gli avvertimenti del traffico, perché lui vi trasporta al futuro con un “sii la pinguina veloce”!",
+      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a Cybertruck, its sleek metal chassis visibly integrated into its feathered body, wearing a shiny silver gaming headset, expressive big eyes, tiny red sneakers, standing on a neon-lit asphalt road, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
+      "image": "out/image-1785084714045.png",
+      "voice": "out/voice-1785084714119.wav",
+      "captions": "out/voice-1785084714119.srt",
+      "clip": "out/clip-1785084737848.mp4",
+      "created_at": "2026-07-26T16:52:31.148Z"
+    },
+    {
       "id": "clip-1785059600860",
       "seed": "pigeon fused with a cybertruck",
       "name": "Pinguino Truccanino",
@@ -587,19 +599,7 @@
       "captions": "out/voice-1783619401062.srt",
       "clip": "out/clip-1783619426010.mp4",
       "created_at": "2026-07-09T17:50:39.785Z"
-    },
-    {
-      "id": "clip-1783594409674",
-      "seed": "pigeon fused with a cybertruck",
-      "name": "Pinguino Truccanino",
-      "lyrics": "Ecco Pinguino Truccanino! Dal piumaggio di cera e il corpo di scocca, questo uccello volante guida un CyberTruck bloccato sulle strade del circo urbano. Con un ciglio di occhio e un click di pneumatici, il suo timbro è che nessuna strada è troppo 'alta'. Ma ricordate: non ascoltate gli avvertimenti del traffico, perché lui vi trasporta al futuro con un “sii la pinguina veloce”!",
-      "image_prompt": "Pixar-style 3D character render of an anthropomorphic pigeon fused with a Cybertruck, its sleek metal chassis visibly integrated into its feathered body, wearing a shiny silver gaming headset, expressive big eyes, tiny red sneakers, standing on a neon-lit asphalt road, warm cinematic golden-hour lighting, shallow depth of field, soft bokeh, film grain, charming and cute not scary or uncanny, centered subject, 9:16 portrait.",
-      "image": "out/image-1783594388200.png",
-      "voice": "out/voice-1783594388282.wav",
-      "captions": "out/voice-1783594388282.srt",
-      "clip": "out/clip-1783594409674.mp4",
-      "created_at": "2026-07-09T10:53:43.324Z"
     }
   ],
-  "updated_at": "2026-07-26T09:53:34.562Z"
+  "updated_at": "2026-07-26T16:52:31.148Z"
 }
