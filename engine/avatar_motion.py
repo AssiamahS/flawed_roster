@@ -87,7 +87,11 @@ def run_hf():
     from gradio_client import Client, handle_file
     space = os.environ.get("HF_SPACE", "alexnasa/Wan2.2-Animate-ZEROGPU")
     print(f"[hf] connecting to {space}", flush=True)
-    client = Client(space, hf_token=os.environ.get("HF_TOKEN") or None, verbose=False)
+    tok = os.environ.get("HF_TOKEN") or None
+    try:
+        client = Client(space, token=tok, verbose=False)
+    except TypeError:  # gradio_client < 1.0 called it hf_token
+        client = Client(space, hf_token=tok, verbose=False)
     t0 = time.time()
     res = client.predict(input_video={"video": handle_file(ref)}, max_duration_s=float(os.environ.get("DURATION", "4")),
                          edited_frame=handle_file(avatar), rc_str="Character Swap",
