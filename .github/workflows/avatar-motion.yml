@@ -1,0 +1,66 @@
+name: Avatar Motion
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Reference dance clip (direct mp4 URL)"
+        required: true
+        type: string
+      trim_start:
+        description: "Start second"
+        default: "0"
+        type: string
+      duration:
+        description: "Seconds to use (cost scales with this)"
+        default: "6"
+        type: string
+      image_url:
+        description: "Avatar image URL (blank = generate from avatar_prompt)"
+        required: false
+        default: ""
+        type: string
+      avatar_prompt:
+        description: "Prompt for the generated avatar"
+        required: false
+        default: "Photorealistic full-body photo of a masked male DJ standing straight facing the camera, arms relaxed at his sides, feet visible. Sleek polished gold metallic full-face mask with subtle West African Adinkra engravings, black fitted bomber jacket, black slim trousers, white sneakers, thin gold chain. Plain light grey studio backdrop, soft even lighting, whole body in frame head to shoes, vertical 9:16. No text."
+        type: string
+      motion_model:
+        description: "Replicate model"
+        default: "wan-video/wan-2.2-animate-replace"
+        type: string
+      extra_json:
+        description: "Extra model inputs as JSON (unknown keys are ignored)"
+        default: "{}"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Generate
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          VIDEO_URL: ${{ inputs.video_url }}
+          TRIM_START: ${{ inputs.trim_start }}
+          DURATION: ${{ inputs.duration }}
+          IMAGE_URL: ${{ inputs.image_url }}
+          AVATAR_PROMPT: ${{ inputs.avatar_prompt }}
+          MOTION_MODEL: ${{ inputs.motion_model }}
+          EXTRA_JSON: ${{ inputs.extra_json }}
+          OUT_DIR: out
+        run: python3 engine/avatar_motion.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: avatar-motion-${{ github.run_id }}
+          path: out/
+          retention-days: 2
+          if-no-files-found: ignore
