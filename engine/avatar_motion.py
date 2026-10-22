@@ -10,7 +10,7 @@ os.makedirs(OUT, exist_ok=True)
 def call(method, path, body=None):
     req = urllib.request.Request(API + path if path.startswith("/") else path, method=method,
                                  data=json.dumps(body).encode() if body is not None else None,
-                                 headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"})
+                                 headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json", "User-Agent": "avatar-motion/1.0 (+github actions)"})
     try:
         with urllib.request.urlopen(req, timeout=120) as r:
             return r.status, json.loads(r.read() or b"{}")
@@ -51,7 +51,9 @@ def run(model, inp, label):
     return out[0] if isinstance(out, list) else out
 
 def fetch(url, path):
-    urllib.request.urlretrieve(url, path); print("saved", path, os.path.getsize(path), "bytes")
+    req = urllib.request.Request(url, headers={"User-Agent": "avatar-motion/1.0"})
+    with urllib.request.urlopen(req, timeout=300) as r, open(path, "wb") as f: f.write(r.read())
+    print("saved", path, os.path.getsize(path), "bytes")
 
 # ---- 1. reference clip: download, trim, crop to 9:16
 src = os.path.join(OUT, "src.mp4"); ref = os.path.join(OUT, "reference.mp4")
