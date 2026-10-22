@@ -3,7 +3,7 @@ Stdlib only. Token comes from REPLICATE_API_TOKEN; nothing secret is printed."""
 import json, os, subprocess, sys, time, urllib.request, urllib.error
 
 API = "https://api.replicate.com/v1"
-TOKEN = os.environ.get("REPLICATE_API_TOKEN", "")
+TOKEN = os.environ.get("REPLICATE_API_TOKEN", "").strip()
 BACKEND = os.environ.get("BACKEND", "replicate")
 OUT = os.environ.get("OUT_DIR", "out")
 os.makedirs(OUT, exist_ok=True)
@@ -87,7 +87,7 @@ def run_hf():
     from gradio_client import Client, handle_file
     space = os.environ.get("HF_SPACE", "alexnasa/Wan2.2-Animate-ZEROGPU")
     print(f"[hf] connecting to {space}", flush=True)
-    tok = os.environ.get("HF_TOKEN") or None
+    tok = (os.environ.get("HF_TOKEN") or "").strip() or None
     try:
         client = Client(space, token=tok, verbose=False)
     except TypeError:  # gradio_client < 1.0 called it hf_token
