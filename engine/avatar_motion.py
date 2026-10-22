@@ -93,7 +93,7 @@ def run_hf():
     except TypeError:  # gradio_client < 1.0 called it hf_token
         client = Client(space, hf_token=tok, verbose=False)
     t0 = time.time()
-    res = client.predict(input_video={"video": handle_file(ref)}, max_duration_s=float(os.environ.get("DURATION", "4")),
+    res = client.predict(input_video=handle_file(ref), max_duration_s=float(os.environ.get("DURATION", "4")),
                          edited_frame=handle_file(avatar), rc_str="Character Swap",
                          resolution_choice=os.environ.get("HF_RESOLUTION", "Low Res"), api_name="/animate_scene")
     print(f"[hf] finished in {int(time.time() - t0)}s -> {str(res)[:200]}")
