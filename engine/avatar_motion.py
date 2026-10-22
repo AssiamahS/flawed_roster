@@ -15,7 +15,11 @@ def call(method, path, body=None):
         with urllib.request.urlopen(req, timeout=120) as r:
             return r.status, json.loads(r.read() or b"{}")
     except urllib.error.HTTPError as e:
-        return e.code, json.loads(e.read() or b"{}")
+        raw = e.read() or b"{}"
+        try:
+            return e.code, json.loads(raw)
+        except ValueError:
+            return e.code, {"detail": raw.decode("utf-8", "replace")[:300]}
 
 def upload(path, ctype):
     r = subprocess.run(["curl", "-s", "-X", "POST", "-H", f"Authorization: Bearer {TOKEN}",
