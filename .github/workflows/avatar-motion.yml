@@ -20,6 +20,11 @@ on:
         default: "replicate"
         type: choice
         options: [replicate, hf]
+      hf_mode:
+        description: "hf backend: Character Swap (put avatar in the clip) or Pose Retarget (avatar's own scene)"
+        default: "Character Swap"
+        type: choice
+        options: ["Character Swap", "Pose Retarget"]
       image_path:
         description: "Avatar file in this repo (wins over image_url)"
         required: false
@@ -61,6 +66,7 @@ jobs:
       - name: Generate
         env:
           BACKEND: ${{ inputs.backend }}
+          HF_MODE: ${{ inputs.hf_mode }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           IMAGE_PATH: ${{ inputs.image_path }}
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}

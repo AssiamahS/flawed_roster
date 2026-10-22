@@ -94,12 +94,17 @@ def run_hf():
         client = Client(space, hf_token=tok, verbose=False)
     t0 = time.time()
     res = client.predict(input_video=handle_file(ref), max_duration_s=float(os.environ.get("DURATION", "4")),
-                         edited_frame=handle_file(avatar), rc_str="Character Swap",
+                         edited_frame=handle_file(avatar), rc_str=os.environ.get("HF_MODE") or "Character Swap",
                          resolution_choice=os.environ.get("HF_RESOLUTION", "Low Res"), api_name="/animate_scene")
     print(f"[hf] finished in {int(time.time() - t0)}s -> {str(res)[:200]}")
-    path = res.get("video") if isinstance(res, dict) else (res[0] if isinstance(res, (list, tuple)) else res)
-    if isinstance(path, dict): path = path.get("video") or path.get("path")
-    import shutil; shutil.copy(path, final)
+    import shutil
+    outs = list(res) if isinstance(res, (list, tuple)) else [res]
+    labels = ["edited", "pose", "background", "mask", "face"]
+    for i, o in enumerate(outs):
+        if isinstance(o, dict): o = o.get("video") or o.get("path")
+        if o and os.path.exists(o):
+            shutil.copy(o, os.path.join(OUT, f"hf-{labels[i] if i < len(labels) else i}.mp4"))
+    shutil.copy(os.path.join(OUT, "hf-edited.mp4"), final)
 
 if BACKEND == "hf":
     run_hf()
