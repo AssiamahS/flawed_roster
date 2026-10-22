@@ -15,8 +15,18 @@ on:
         description: "Seconds to use (cost scales with this)"
         default: "6"
         type: string
+      backend:
+        description: "replicate (paid, reliable) or hf (free ZeroGPU Space, short clips)"
+        default: "replicate"
+        type: choice
+        options: [replicate, hf]
+      image_path:
+        description: "Avatar file in this repo (wins over image_url)"
+        required: false
+        default: "assets/avatars/gold-mask-dj.png"
+        type: string
       image_url:
-        description: "Avatar image URL (blank = generate from avatar_prompt)"
+        description: "Avatar image URL (blank + blank image_path = generate from avatar_prompt)"
         required: false
         default: ""
         type: string
@@ -45,8 +55,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Install gradio client (hf backend)
+        if: inputs.backend == 'hf'
+        run: pip install --quiet gradio_client
       - name: Generate
         env:
+          BACKEND: ${{ inputs.backend }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          IMAGE_PATH: ${{ inputs.image_path }}
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           VIDEO_URL: ${{ inputs.video_url }}
           TRIM_START: ${{ inputs.trim_start }}

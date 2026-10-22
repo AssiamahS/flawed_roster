@@ -3,7 +3,8 @@ Stdlib only. Token comes from REPLICATE_API_TOKEN; nothing secret is printed."""
 import json, os, subprocess, sys, time, urllib.request, urllib.error
 
 API = "https://api.replicate.com/v1"
-TOKEN = os.environ["REPLICATE_API_TOKEN"]
+TOKEN = os.environ.get("REPLICATE_API_TOKEN", "")
+BACKEND = os.environ.get("BACKEND", "replicate")
 OUT = os.environ.get("OUT_DIR", "out")
 os.makedirs(OUT, exist_ok=True)
 
@@ -65,7 +66,9 @@ os.remove(src)
 
 # ---- 2. avatar: given URL, or generate one
 avatar = os.path.join(OUT, "avatar.png")
-if os.environ.get("IMAGE_URL"):
+if os.environ.get("IMAGE_PATH"):
+    import shutil; shutil.copy(os.environ["IMAGE_PATH"], avatar); print("avatar from", os.environ["IMAGE_PATH"])
+elif os.environ.get("IMAGE_URL"):
     fetch(os.environ["IMAGE_URL"], avatar)
 else:
     img_model = os.environ.get("IMAGE_MODEL", "black-forest-labs/flux-1.1-pro")
@@ -77,23 +80,41 @@ else:
     fetch(run(img_model, inp, "avatar"), avatar)
 
 # ---- 3. motion transfer
+final = os.path.join(OUT, "avatar-dance.mp4")
+
+def run_hf():
+    """Free path: a public Wan 2.2 Animate Space on ZeroGPU (quota-limited, slow, short clips)."""
+    from gradio_client import Client, handle_file
+    space = os.environ.get("HF_SPACE", "alexnasa/Wan2.2-Animate-ZEROGPU")
+    print(f"[hf] connecting to {space}", flush=True)
+    client = Client(space, hf_token=os.environ.get("HF_TOKEN") or None, verbose=False)
+    t0 = time.time()
+    res = client.predict(input_video={"video": handle_file(ref)}, max_duration_s=float(os.environ.get("DURATION", "4")),
+                         edited_frame=handle_file(avatar), rc_str="Character Swap",
+                         resolution_choice=os.environ.get("HF_RESOLUTION", "Low Res"), api_name="/animate_scene")
+    print(f"[hf] finished in {int(time.time() - t0)}s -> {str(res)[:200]}")
+    path = res.get("video") if isinstance(res, dict) else (res[0] if isinstance(res, (list, tuple)) else res)
+    if isinstance(path, dict): path = path.get("video") or path.get("path")
+    import shutil; shutil.copy(path, final)
+
+if BACKEND == "hf":
+    run_hf()
 model = os.environ.get("MOTION_MODEL", "wan-video/wan-2.2-animate-replace")
-props = schema(model)
-def pick(*words):
+def pick(props, *words):
     for k, v in props.items():
         if v.get("format") == "uri" and any(w in k.lower() for w in words): return k
     for k in props:
         if any(w in k.lower() for w in words): return k
-img_key, vid_key = pick("character", "image"), pick("video")
-if not img_key or not vid_key: sys.exit(f"cannot map inputs for {model}: {list(props)}")
-inp = {img_key: upload(avatar, "image/png"), vid_key: upload(ref, "video/mp4")}
-extra = json.loads(os.environ.get("EXTRA_JSON") or "{}")
-for k, v in extra.items():
-    if k in props: inp[k] = v
-    else: print(f"ignoring unknown input {k}")
-result = run(model, inp, "motion")
-final = os.path.join(OUT, "avatar-dance.mp4")
-fetch(result, final)
+if BACKEND != "hf":
+    props = schema(model)
+    img_key, vid_key = pick(props, "character", "image"), pick(props, "video")
+    if not img_key or not vid_key: sys.exit(f"cannot map inputs for {model}: {list(props)}")
+    inp = {img_key: upload(avatar, "image/png"), vid_key: upload(ref, "video/mp4")}
+    extra = json.loads(os.environ.get("EXTRA_JSON") or "{}")
+    for k, v in extra.items():
+        if k in props: inp[k] = v
+        else: print(f"ignoring unknown input {k}")
+    fetch(run(model, inp, "motion"), final)
 
 # ---- 4. put the clip audio back if the model returned a silent video
 has_audio = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index", "-of", "csv=p=0", final],
